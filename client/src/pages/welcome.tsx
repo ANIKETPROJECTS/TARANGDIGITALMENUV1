@@ -263,6 +263,9 @@ export default function Welcome() {
             borderRadius: "20px",
             padding: "20px 16px 16px",
             boxShadow: "inset 0 0 0 2px #e49b1d, 0 0 0 2px #FFFFFF, 0 0 0 4px #030101",
+            marginLeft: "16px",
+            marginRight: "16px",
+            width: "calc(100% - 32px)",
           }}
         >
           {/* Follow Our Socials */}
