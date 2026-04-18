@@ -80,16 +80,18 @@ export class MongoStorage implements IStorage {
   private restaurantId: ObjectId;
 
   private readonly categories = [
-    "nibbles", "soups", "titbits", "salads", "mangalorean-style", "wok", "charcoal", 
-    "continental", "pasta", "artisan-pizzas", "mini-burger-sliders", "entree-(main-course)", 
-    "bao-&-dim-sum", "indian-mains---curries", "biryanis-&-rice", "dals", "breads", 
-    "asian-mains", "rice-with-curry---thai-&-asian-bowls", "rice-&-noodles", "desserts", 
-    "blended-whisky", "blended-scotch-whisky", "american-irish-whiskey", "single-malt-whisky", 
-    "vodka", "gin", "rum", "tequila", "cognac-brandy", "liqueurs", "sparkling-wine", 
-    "white-wines", "rose-wines", "red-wines", "dessert-wines", "port-wine", 
-    "signature-mocktails", "soft-beverages", "craft-beers-on-tap", "draught-beer", 
-    "pint-beers", "classic-cocktails", "signature-cocktails", "wine-cocktails", 
-    "sangria", "beer-cocktail", "signature-shots", "sizzlers"
+    // FOOD
+    "soups", "khane-peene", "continental-veg", "continental-non-veg",
+    "pasta", "pizza", "tandoor-veg", "tandoor-non-veg",
+    "oriental-starter-veg", "oriental-starter-non-veg", "jalpari-special",
+    "sabzi-tarkari", "murg-e-khaas", "gosht-e-khaas", "agri-style",
+    "rotis", "oriental-curries", "fried-rice-noodles", "basmati-ki-khushbu",
+    "dals", "salad-raita", "desserts",
+    // BAR
+    "cocktails", "shots", "beer", "alcopops", "wine", "liquor", "beverages",
+    "whisky", "single-malt", "bourbon-irish", "vodka", "gin", "rum", "brandy",
+    // MOCKTAILS
+    "mocktails-drinks"
   ];
 
   constructor(connectionString: string) {
