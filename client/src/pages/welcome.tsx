@@ -214,15 +214,15 @@ export default function Welcome() {
         {/* Logo */}
         <div
           className="w-full flex justify-center flex-shrink-0"
-          style={{ paddingTop: "6px", maxHeight: "360px", overflow: "hidden" }}
+          style={{ paddingTop: "6px", maxHeight: "280px", overflow: "hidden" }}
         >
           <img
             src={logoSrc}
             alt="AT Digital Menu"
             style={{
-              width: "360px",
+              width: "270px",
               maxWidth: "100%",
-              maxHeight: "360px",
+              maxHeight: "270px",
               objectFit: "contain",
               filter: "none",
             }}
@@ -234,19 +234,24 @@ export default function Welcome() {
           onClick={handleExploreMenu}
           className="w-full max-w-xs py-4 font-semibold rounded-full transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
           style={{
-            background: "linear-gradient(90deg, #d4af37, #e6c55a)",
+            background: "#030101",
             border: "none",
-            color: "#3D3100",
-            marginTop: "-38px",
-            boxShadow: isDark
-              ? "inset 0 0 0 2px #3D3100, 0 0 0 2px #FFFFFF, 0 0 0 4px #d4af37"
-              : "inset 0 0 0 2px rgba(0,0,0,0.1), 0 0 0 2px #FFFFFF, 0 0 0 4px #d4af37",
+            color: "#c4722a",
+            marginTop: "-10px",
+            boxShadow: "inset 0 0 0 2px #c4722a, 0 0 0 2px #FFFFFF, 0 0 0 4px #030101",
             fontSize: "17px",
           }}
           data-testid="button-explore-menu"
         >
-          <img src={spoonForkImg} alt="" className="w-7 h-7 object-contain" style={{ mixBlendMode: "multiply" }} />
-          <span style={{ color: "#3D3100" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
+          <img
+            src={spoonForkImg}
+            alt=""
+            className="w-7 h-7 object-contain"
+            style={{
+              filter: "brightness(0) saturate(100%) invert(47%) sepia(49%) saturate(640%) hue-rotate(349deg) brightness(93%) contrast(95%)",
+            }}
+          />
+          <span style={{ color: "#c4722a" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
         </button>
 
         {/* Follow Our Socials label */}
