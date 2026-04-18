@@ -236,9 +236,9 @@ export default function Welcome() {
           style={{
             background: "#030101",
             border: "none",
-            color: "#c4722a",
+            color: "#e49b1d",
             marginTop: "-10px",
-            boxShadow: "inset 0 0 0 2px #c4722a, 0 0 0 2px #FFFFFF, 0 0 0 4px #030101",
+            boxShadow: "inset 0 0 0 2px #e49b1d, 0 0 0 2px #FFFFFF, 0 0 0 4px #030101",
             fontSize: "17px",
           }}
           data-testid="button-explore-menu"
@@ -248,10 +248,10 @@ export default function Welcome() {
             alt=""
             className="w-7 h-7 object-contain"
             style={{
-              filter: "brightness(0) saturate(100%) invert(47%) sepia(49%) saturate(640%) hue-rotate(349deg) brightness(93%) contrast(95%)",
+              filter: "brightness(0) saturate(100%) invert(65%) sepia(60%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(95%)",
             }}
           />
-          <span style={{ color: "#c4722a" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
+          <span style={{ color: "#e49b1d" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
         </button>
 
         {/* Follow Our Socials label */}
