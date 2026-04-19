@@ -282,7 +282,7 @@
   background-color: var(--bb-bg);
   background-image: url('/dark-bg-pattern.png');
   background-repeat: repeat;
-  background-size: 600px auto;
+  background-size: 800px auto;
 }
 
 [data-theme="light"] .bb-bg {
