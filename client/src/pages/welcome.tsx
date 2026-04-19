@@ -213,7 +213,7 @@ export default function Welcome() {
         {/* Logo */}
         <div
           className="w-full flex justify-center flex-shrink-0"
-          style={{ paddingTop: "6px", maxHeight: "280px", overflow: "hidden" }}
+          style={{ paddingTop: "40px", maxHeight: "310px", overflow: "hidden" }}
         >
           <img
             src={logoSrc}
@@ -237,7 +237,7 @@ export default function Welcome() {
             border: "none",
             color: "#e49b1d",
             marginTop: "-10px",
-            boxShadow: "inset 0 0 0 2px #e49b1d, 0 0 0 2px #FFFFFF, 0 0 0 4px #030101",
+            boxShadow: "inset 0 0 0 2px #e49b1d, 0 0 0 2px #e49b1d, 0 0 0 4px #030101",
             fontSize: "17px",
           }}
           data-testid="button-explore-menu"
@@ -261,7 +261,7 @@ export default function Welcome() {
             background: "#030101",
             borderRadius: "20px",
             padding: "20px 16px 16px",
-            boxShadow: "inset 0 0 0 2px #e49b1d, 0 0 0 2px #FFFFFF, 0 0 0 4px #030101",
+            boxShadow: "inset 0 0 0 2px #e49b1d, 0 0 0 2px #e49b1d, 0 0 0 4px #030101",
           }}
         >
           {/* Follow Our Socials */}
