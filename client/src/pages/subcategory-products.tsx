@@ -202,15 +202,15 @@ export default function SubcategoryProducts() {
 
   if (!isLoadingCategories && !currentSubcategory) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "var(--bb-bg)" }}>
+      <div className="bb-bg min-h-screen flex items-center justify-center">
         <p style={{ color: "var(--bb-text)" }}>Category not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--bb-bg)" }}>
-      <header className="sticky top-0 z-30" style={{ backgroundColor: "var(--bb-bg)" }}>
+    <div className="bb-bg min-h-screen">
+      <header className="bb-bg sticky top-0 z-30">
         <div className="container mx-auto px-2 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-2">
             <Button

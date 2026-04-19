@@ -141,8 +141,7 @@ function CouponsFullScreen({
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col"
-          style={{ backgroundColor: "var(--bb-bg)" }}
+          className="bb-bg fixed inset-0 z-50 flex flex-col"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
@@ -394,10 +393,9 @@ export default function MenuLanding() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--bb-bg)" }}>
+    <div className="bb-bg min-h-screen">
       <header
-        className="sticky top-0 z-30 elegant-shadow"
-        style={{ backgroundColor: "var(--bb-bg)" }}
+        className="bb-bg sticky top-0 z-30 elegant-shadow"
       >
         <div className="container mx-auto px-2 sm:px-4 py-2">
           <div className="grid grid-cols-3 items-center w-full">

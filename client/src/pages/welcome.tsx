@@ -193,8 +193,7 @@ export default function Welcome() {
 
   return (
     <div
-      className="h-screen w-full overflow-hidden relative flex flex-col"
-      style={{ backgroundColor: "var(--bb-bg)" }}
+      className="bb-bg h-screen w-full overflow-hidden relative flex flex-col"
     >
       <MediaPreloader onComplete={() => setMediaReady(true)} />
 

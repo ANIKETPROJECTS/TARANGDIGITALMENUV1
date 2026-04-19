@@ -306,7 +306,7 @@ export default function CategorySelection() {
 
   if (isLoadingCategories) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "var(--bb-bg)" }}>
+      <div className="bb-bg min-h-screen flex items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin" style={{ color: "var(--bb-gold)" }} />
       </div>
     );
@@ -314,15 +314,15 @@ export default function CategorySelection() {
 
   if (!mainCategory) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "var(--bb-bg)" }}>
+      <div className="bb-bg min-h-screen flex items-center justify-center">
         <p style={{ color: "var(--bb-text)" }}>Category not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--bb-bg)" }}>
-      <header className="sticky top-0 z-30 elegant-shadow" style={{ backgroundColor: "var(--bb-bg)" }}>
+    <div className="bb-bg min-h-screen">
+      <header className="bb-bg sticky top-0 z-30 elegant-shadow">
         <div className="container mx-auto px-2 sm:px-4 py-2">
           <div className="grid grid-cols-3 items-center w-full">
             <div className="flex items-center space-x-2 sm:space-x-3">
