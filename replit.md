@@ -8,6 +8,7 @@
 
 Preferred communication style: Simple, everyday language.
 UI/UX Preference: Modern, authentic design with sophisticated animations and orange, black, white brand theming. Focus on easy-to-use features like one-click rating system.
+Restaurant details preference: Tarang Kitchen & Bar links and contacts should use location `https://maps.app.goo.gl/CQLKFLDWPQK5f6U7A`, Instagram `https://www.instagram.com/tarangkitchenandbar/`, Facebook `https://www.facebook.com/Tarangkitchenandbar/`, YouTube `https://youtube.com`, phone/WhatsApp `7738310238`, email `TARANG.HOSPITALITY@GMAIL.COM`, and timing `11.30 AM - 11.30 AM`.
 
 ## System Architecture
 

@@ -16,7 +16,7 @@ import instaImg from "@assets/instagram_(2)_1773345405292.png";
 import fbImg from "@assets/facebook_(2)_1773345408410.png";
 import ytImg from "@assets/youtube_1773345412112.png";
 import whatsappImg from "@assets/apple_1773515172898.png";
-import reservationImg from "@assets/daily-routine_1773569307075.png";
+import reservationImg from "@assets/booking_(1)_1776693914078.png";
 
 interface HamburgerMenuProps {
   isOpen: boolean;
@@ -37,7 +37,7 @@ const TIME_SLOTS = [
   "09:30 PM – 11:00 PM",
 ];
 
-function ReservationModal({ onClose }: { onClose: () => void }) {
+export function ReservationModal({ onClose }: { onClose: () => void }) {
   const { isDark } = useTheme();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -64,7 +64,7 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center"
+      className="fixed inset-0 z-[60] flex items-end justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -77,7 +77,7 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
       />
 
       <motion.div
-        className="relative w-full sm:max-w-sm mx-0 sm:mx-4 rounded-t-3xl sm:rounded-3xl overflow-hidden"
+        className="relative w-full sm:max-w-sm mx-0 sm:mx-4 rounded-t-3xl overflow-hidden"
         style={{
           background: isDark ? "linear-gradient(160deg, #1C1500 0%, #0F0C00 100%)" : "#FFFFFF",
           border: isDark ? "1.5px solid rgba(228,155,29,0.4)" : "1.5px solid rgba(228,155,29,0.5)",
@@ -85,9 +85,9 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
           maxHeight: "92dvh",
           overflowY: "auto",
         }}
-        initial={{ y: 80, opacity: 0, scale: 0.96 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
-        exit={{ y: 80, opacity: 0, scale: 0.96 }}
+        initial={{ y: "100%", opacity: 1 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: "100%", opacity: 1 }}
         transition={{ type: "spring", damping: 26, stiffness: 300 }}
       >
         {/* Gold shimmer top bar */}
@@ -100,13 +100,14 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
               onClick={onClose}
               className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center"
               style={{ background: "rgba(228,155,29,0.1)", border: "1px solid rgba(228,155,29,0.25)", color: "#E49B1D" }}
+              data-testid="button-close-reservation"
             >
               <X className="w-3.5 h-3.5" />
             </button>
 
             {/* Header */}
             <div className="flex items-center gap-3 mb-5">
-              <img src={reservationImg} alt="Reservation" className="w-12 h-12 object-contain flex-shrink-0" />
+              <img src={reservationImg} alt="Reservation" className="w-12 h-12 object-contain flex-shrink-0 rounded-xl" />
               <div>
                 <p className="text-[10px] tracking-[0.25em] uppercase font-semibold mb-0.5" style={{ color: "rgba(228,155,29,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
                   Make a Reservation
@@ -427,7 +428,7 @@ export default function HamburgerMenu({
                 style={{ background: isDark ? "rgba(228,155,29,0.06)" : "#FFFFFF", border: isDark ? "1px solid rgba(228,155,29,0.28)" : "1px solid rgba(0,0,0,0.1)" }}
                 data-testid="button-open-reservation"
               >
-                <img src={reservationImg} alt="Reservation" className="w-12 h-12 object-contain flex-shrink-0" />
+                <img src={reservationImg} alt="Reservation" className="w-12 h-12 object-contain flex-shrink-0 rounded-xl" />
                 <div className="text-left flex-1">
                   <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-0.5" style={{ color: "rgba(228,155,29,0.55)", fontFamily: "'DM Sans', sans-serif" }}>
                     Table Booking

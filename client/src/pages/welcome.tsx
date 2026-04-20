@@ -15,7 +15,10 @@ import mapsImg from "@assets/logo_(1)_1773390711534.png";
 import callImg from "@assets/call_1773390891033.png";
 import mailImg from "@assets/communication_1773390476300.png";
 import whatsappImg from "@assets/apple_1773515172898.png";
+import reservationImg from "@assets/booking_(1)_1776693914078.png";
 import { useQuery } from "@tanstack/react-query";
+import { AnimatePresence } from "framer-motion";
+import { ReservationModal } from "@/components/hamburger-menu";
 
 interface SocialLinks {
   instagram: string;
@@ -35,14 +38,14 @@ interface WelcomeScreenUI {
 }
 
 const DEFAULT_LINKS: SocialLinks = {
-  instagram: "https://www.instagram.com/barrelborn_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-  facebook: "https://facebook.com",
+  instagram: "https://www.instagram.com/tarangkitchenandbar/",
+  facebook: "https://www.facebook.com/Tarangkitchenandbar/",
   youtube: "https://youtube.com",
   googleReview: "https://g.page/r/CbKAeLOlg005EBM/review",
-  locate: "https://maps.app.goo.gl/C7K6BijrGrvWTXyBA",
-  call: "tel:+918278251111",
-  whatsapp: "https://wa.me/918278251111",
-  email: "mailto:info@barrelborn.in",
+  locate: "https://maps.app.goo.gl/CQLKFLDWPQK5f6U7A",
+  call: "tel:+917738310238",
+  whatsapp: "https://wa.me/917738310238",
+  email: "mailto:TARANG.HOSPITALITY@GMAIL.COM",
   website: "https://www.tarangkitchenandbar.com",
 };
 
@@ -158,6 +161,7 @@ export default function Welcome() {
   const [, setLocation] = useLocation();
   const { playWelcomeAudio } = useWelcomeAudio();
   const [mediaReady, setMediaReady] = useState(false);
+  const [showReservation, setShowReservation] = useState(false);
   const { t } = useLanguage();
   const { isDark } = useTheme();
 
@@ -305,7 +309,7 @@ export default function Welcome() {
           <p className="social-card-label text-xs font-medium tracking-widest">
             Connect With Us
           </p>
-          <div className="flex items-start justify-center gap-4">
+          <div className="flex flex-wrap items-start justify-center gap-3">
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
               onClick={() => handleSocialClick(links.locate)}
@@ -338,6 +342,14 @@ export default function Welcome() {
               <img src={mailImg} alt="Email" className="w-12 h-12 rounded-lg object-cover" />
               <span className="social-card-label text-xs font-semibold">EMAIL</span>
             </button>
+            <button
+              className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
+              onClick={() => setShowReservation(true)}
+              data-testid="button-connect-reservation"
+            >
+              <img src={reservationImg} alt="Reservation" className="w-12 h-12 rounded-xl object-contain" />
+              <span className="social-card-label text-xs font-semibold">BOOK</span>
+            </button>
           </div>
 
           {/* Footer */}
@@ -352,6 +364,11 @@ export default function Welcome() {
         </div>
 
       </div>
+      <AnimatePresence>
+        {showReservation && (
+          <ReservationModal onClose={() => setShowReservation(false)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
