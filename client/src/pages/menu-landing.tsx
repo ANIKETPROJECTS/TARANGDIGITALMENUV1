@@ -410,7 +410,7 @@ export default function MenuLanding() {
               <img
                 src="/tarang-logo-text-nobg.png"
                 alt="Tarang Kitchen & Bar"
-                style={{ width: "180px", height: "72px", objectFit: "contain", display: "block" }}
+                style={{ width: "220px", height: "50px", objectFit: "contain", display: "block" }}
                 data-testid="img-logo"
               />
             </div>

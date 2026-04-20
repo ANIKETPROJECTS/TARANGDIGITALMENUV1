@@ -52,12 +52,12 @@ export default function LanguageDropdown({ className = "" }: LanguageDropdownPro
         ) : (
           <img src={googleTranslateImg} alt="Translate" className="w-7 h-7 object-contain" />
         )}
-        <span className="text-base font-semibold tracking-wide" style={{ color: "#E49B1D" }}>
+        <span className="text-base font-semibold tracking-wide" style={{ color: isDark ? "#E49B1D" : "#000000" }}>
           {current.native}
         </span>
         <ChevronDown
           className="w-5 h-5 transition-transform duration-200"
-          style={{ color: "#E49B1D", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+          style={{ color: isDark ? "#E49B1D" : "#000000", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
         />
       </button>
 
