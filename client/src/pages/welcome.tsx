@@ -196,7 +196,7 @@ export default function Welcome() {
       className="bb-bg h-screen w-full overflow-hidden relative flex flex-col"
     >
       {/* Subtle dark fade over the background pattern */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(0,0,0,0.10)", zIndex: 0 }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(255,255,255,0.08)", zIndex: 0 }} />
       <MediaPreloader onComplete={() => setMediaReady(true)} />
 
       {/* Theme toggle — fixed top left */}
