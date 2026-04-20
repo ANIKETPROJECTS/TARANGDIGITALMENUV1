@@ -237,12 +237,12 @@ export default function Welcome() {
           style={{ marginTop: "-10px" }}
           data-testid="button-explore-menu"
         >
+          <span>{welcomeUI.buttonText || t.exploreMenu}</span>
           <img
             src={spoonForkImg}
             alt=""
             className="btn-icon w-8 h-8 object-contain"
           />
-          <span>{welcomeUI.buttonText || t.exploreMenu}</span>
         </button>
 
         {/* Follow Our Socials — card */}

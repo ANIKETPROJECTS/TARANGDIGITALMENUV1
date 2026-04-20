@@ -294,13 +294,13 @@
 .btn-explore {
   background: #FFFFFF;
   border: 5px solid #030101;
-  color: #030101;
+  color: #E49B1D;
   font-size: 18px;
 }
 [data-theme="light"] .btn-explore {
   background: #030101;
   border: 5px solid #c4722a;
-  color: #FFFFFF;
+  color: #E49B1D;
 }
 .btn-explore .btn-icon {
   filter: brightness(0) saturate(100%);
@@ -321,10 +321,10 @@
   border: 5px solid #c4722a;
 }
 .social-card-label {
-  color: #030101;
+  color: #E49B1D;
 }
 [data-theme="light"] .social-card-label {
-  color: #FFFFFF;
+  color: #E49B1D;
 }
 .social-card-divider {
   background: rgba(3,1,1,0.2) !important;
