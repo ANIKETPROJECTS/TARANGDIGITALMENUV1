@@ -238,10 +238,13 @@ export default function Welcome() {
           data-testid="button-explore-menu"
         >
           <span>{welcomeUI.buttonText || t.exploreMenu}</span>
-          <img
-            src={spoonForkImg}
-            alt=""
-            className="btn-icon w-8 h-8 object-contain"
+          <span
+            className="btn-icon w-8 h-8 flex-shrink-0 inline-block"
+            style={{
+              backgroundColor: '#E49B1D',
+              WebkitMask: `url(${spoonForkImg}) no-repeat center / contain`,
+              mask: `url(${spoonForkImg}) no-repeat center / contain`,
+            }}
           />
         </button>
 

@@ -302,12 +302,6 @@
   border: 5px solid #c4722a;
   color: #E49B1D;
 }
-.btn-explore .btn-icon {
-  filter: brightness(0) saturate(100%) invert(63%) sepia(59%) saturate(1171%) hue-rotate(5deg) brightness(101%);
-}
-[data-theme="light"] .btn-explore .btn-icon {
-  filter: brightness(0) saturate(100%) invert(63%) sepia(59%) saturate(1171%) hue-rotate(5deg) brightness(101%);
-}
 
 /* Welcome page — social card */
 .social-card {
