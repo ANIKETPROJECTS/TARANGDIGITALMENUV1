@@ -233,39 +233,24 @@ export default function Welcome() {
         {/* Explore button */}
         <button
           onClick={handleExploreMenu}
-          className="w-full max-w-xs py-4 font-semibold rounded-full transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
-          style={{
-            background: "#FFFFFF",
-            border: "1.5px solid #030101",
-            color: "#030101",
-            marginTop: "-10px",
-            fontSize: "18px",
-          }}
+          className="btn-explore w-full max-w-xs py-4 font-semibold rounded-full transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
+          style={{ marginTop: "-10px" }}
           data-testid="button-explore-menu"
         >
           <img
             src={spoonForkImg}
             alt=""
-            className="w-8 h-8 object-contain"
-            style={{
-              filter: "brightness(0) saturate(100%)",
-            }}
+            className="btn-icon w-8 h-8 object-contain"
           />
-          <span style={{ color: "#030101" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
+          <span>{welcomeUI.buttonText || t.exploreMenu}</span>
         </button>
 
         {/* Follow Our Socials — card */}
         <div
-          className="w-full max-w-xs flex flex-col items-center gap-4"
-          style={{
-            marginTop: "20px",
-            background: "#FFFFFF",
-            borderRadius: "20px",
-            border: "1.5px solid #030101",
-            padding: "20px 16px 16px",
-          }}
+          className="social-card w-full max-w-xs flex flex-col items-center gap-4"
+          style={{ marginTop: "20px" }}
         >
-          <p className="text-xs font-normal tracking-widest" style={{ color: "#030101" }}>
+          <p className="social-card-label text-xs font-normal tracking-widest">
             Follow Our Socials
           </p>
           <div className="flex items-center gap-6">
@@ -293,10 +278,10 @@ export default function Welcome() {
           </div>
 
           {/* Divider */}
-          <div style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
+          <div className="social-card-divider" style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
 
           {/* Click to Rate Us */}
-          <p className="text-xs font-normal tracking-widest" style={{ color: "#030101" }}>
+          <p className="social-card-label text-xs font-normal tracking-widest">
             Click To Rate Us
           </p>
           <div style={{ overflow: "hidden", height: "62px" }}>
@@ -314,10 +299,10 @@ export default function Welcome() {
           </div>
 
           {/* Divider */}
-          <div style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
+          <div className="social-card-divider" style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
 
           {/* Connect With Us */}
-          <p className="text-xs font-normal tracking-widest" style={{ color: "#030101" }}>
+          <p className="social-card-label text-xs font-normal tracking-widest">
             Connect With Us
           </p>
           <div className="flex items-start justify-center gap-4">
@@ -327,7 +312,7 @@ export default function Welcome() {
               data-testid="button-connect-locate"
             >
               <img src={mapsImg} alt="Google Maps" className="w-12 h-12 rounded-lg object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>LOCATE</span>
+              <span className="social-card-label text-xs font-medium">LOCATE</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -335,7 +320,7 @@ export default function Welcome() {
               data-testid="button-connect-call"
             >
               <img src={callImg} alt="Call" className="w-12 h-12 rounded-full object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>CALL</span>
+              <span className="social-card-label text-xs font-medium">CALL</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -343,7 +328,7 @@ export default function Welcome() {
               data-testid="button-connect-chat"
             >
               <img src={whatsappImg} alt="WhatsApp" className="w-12 h-12 rounded-xl object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>CHAT</span>
+              <span className="social-card-label text-xs font-medium">CHAT</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -351,14 +336,14 @@ export default function Welcome() {
               data-testid="button-connect-email"
             >
               <img src={mailImg} alt="Email" className="w-12 h-12 rounded-lg object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>EMAIL</span>
+              <span className="social-card-label text-xs font-medium">EMAIL</span>
             </button>
           </div>
 
           {/* Footer */}
           <p
-            className="cursor-pointer text-xs font-normal tracking-widest"
-            style={{ color: "#030101", textTransform: "lowercase", opacity: 0.6 }}
+            className="social-card-label cursor-pointer text-xs font-normal tracking-widest"
+            style={{ textTransform: "lowercase", opacity: 0.6 }}
             onClick={() => handleSocialClick(links.website)}
             data-testid="text-website-footer"
           >

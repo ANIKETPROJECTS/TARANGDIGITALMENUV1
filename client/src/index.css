@@ -290,6 +290,49 @@
   background-color: #FFFFFF;
 }
 
+/* Welcome page — button */
+.btn-explore {
+  background: #FFFFFF;
+  border: 1.5px solid #030101;
+  color: #030101;
+  font-size: 18px;
+}
+[data-theme="light"] .btn-explore {
+  background: #030101;
+  border: 1.5px solid #c4722a;
+  color: #FFFFFF;
+}
+.btn-explore .btn-icon {
+  filter: brightness(0) saturate(100%);
+}
+[data-theme="light"] .btn-explore .btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Welcome page — social card */
+.social-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid #030101;
+  padding: 20px 16px 16px;
+}
+[data-theme="light"] .social-card {
+  background: #030101;
+  border: 1.5px solid #c4722a;
+}
+.social-card-label {
+  color: #030101;
+}
+[data-theme="light"] .social-card-label {
+  color: #FFFFFF;
+}
+.social-card-divider {
+  background: rgba(3,1,1,0.2) !important;
+}
+[data-theme="light"] .social-card-divider {
+  background: rgba(255,255,255,0.25) !important;
+}
+
 .bb-header {
   background-color: #030101;
   background-image: none;
