@@ -242,7 +242,7 @@
 /* ── Barrelborn theme variables ────────────────────────────── */
 /* Default = dark (current look). Light overrides applied below. */
 :root {
-  --bb-bg:        #c4722a;
+  --bb-bg:        #d98540;
   --bb-card:      #030101;
   --bb-card-alt:  #030101;
   --bb-gold:      #E49B1D;
