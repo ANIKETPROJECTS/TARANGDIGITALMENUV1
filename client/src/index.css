@@ -303,6 +303,11 @@
   color: #E49B1D;
 }
 
+/* Customer details form inputs — white placeholder */
+.customer-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 /* Welcome page — social card */
 .social-card {
   background: #FFFFFF;

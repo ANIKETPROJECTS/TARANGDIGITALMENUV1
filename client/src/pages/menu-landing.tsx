@@ -480,10 +480,10 @@ export default function MenuLanding() {
               <button
                 onClick={handleSkip}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                style={{ background: isDark ? "rgba(228,155,29,0.12)" : "rgba(228,155,29,0.1)", color: "var(--bb-gold)", border: "1px solid var(--bb-search-br)" }}
+                style={{ background: "#E49B1D", color: "#030101", border: "none" }}
                 data-testid="button-close-popup"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4" strokeWidth={3} />
               </button>
 
               <div className="px-7 pt-6 pb-7 flex flex-col items-center">
@@ -504,26 +504,23 @@ export default function MenuLanding() {
 
                 {/* Headline */}
                 <h2
-                  className="text-center font-bold mb-1 leading-tight uppercase tracking-widest"
-                  style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif", fontSize: "20px", letterSpacing: "0.18em" }}
+                  className="text-center font-bold mb-5 leading-none uppercase whitespace-nowrap"
+                  style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif", fontSize: "14px", letterSpacing: "0.12em" }}
                 >
                   Please Enter Your Details
                 </h2>
-                <p className="text-center text-[11px] mb-5 font-medium uppercase tracking-widest" style={{ color: "#E49B1D", letterSpacing: "0.12em", opacity: 0.7, fontFamily: "'DM Sans', sans-serif" }}>
-                  To Proceed To Our Menu
-                </p>
 
                 <form onSubmit={handleSubmit} className="w-full space-y-4">
                   {/* Name field */}
                   <div className="space-y-1">
-                    <label className="text-[10px] tracking-[0.2em] font-medium uppercase" style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif" }}>
+                    <label className="text-[13px] tracking-[0.15em] font-semibold uppercase" style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif" }}>
                       Your Name
                     </label>
                     <input
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
                       placeholder="Enter your name"
-                      className="w-full bg-transparent outline-none text-sm font-medium py-2"
+                      className="customer-form-input w-full bg-transparent outline-none text-sm font-medium py-2"
                       style={{
                         borderBottom: "2px solid #E49B1D",
                         color: "#E49B1D",
@@ -536,7 +533,7 @@ export default function MenuLanding() {
 
                   {/* Phone — underline input */}
                   <div className="space-y-1">
-                    <label className="text-[10px] tracking-[0.2em] font-medium uppercase" style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif" }}>
+                    <label className="text-[13px] tracking-[0.15em] font-semibold uppercase" style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif" }}>
                       Contact Number
                     </label>
                     <input
@@ -549,7 +546,7 @@ export default function MenuLanding() {
                         setCustomerPhone(val);
                       }}
                       placeholder="Enter contact number"
-                      className="w-full bg-transparent outline-none text-sm font-medium py-2"
+                      className="customer-form-input w-full bg-transparent outline-none text-sm font-medium py-2"
                       style={{
                         borderBottom: "2px solid #E49B1D",
                         color: "#E49B1D",
