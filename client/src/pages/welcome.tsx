@@ -235,11 +235,11 @@ export default function Welcome() {
           onClick={handleExploreMenu}
           className="w-full max-w-xs py-4 font-semibold rounded-full transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
           style={{
-            background: "#FFFFFF",
+            background: "#e49b1d",
             border: "none",
-            color: "#030101",
+            color: "#FFFFFF",
             marginTop: "-10px",
-            boxShadow: "inset 0 0 0 2px #030101, 0 0 0 2px #030101, 0 0 0 4px #FFFFFF",
+            boxShadow: "0 4px 16px rgba(228,155,29,0.4)",
             fontSize: "17px",
           }}
           data-testid="button-explore-menu"
@@ -249,25 +249,15 @@ export default function Welcome() {
             alt=""
             className="w-7 h-7 object-contain"
             style={{
-              filter: "brightness(0) saturate(100%)",
+              filter: "brightness(0) invert(1)",
             }}
           />
-          <span style={{ color: "#030101" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
+          <span style={{ color: "#FFFFFF" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
         </button>
 
-        {/* Card wrapping all three sections */}
-        <div
-          className="w-full max-w-xs flex flex-col items-center gap-4"
-          style={{
-            marginTop: "20px",
-            background: "#FFFFFF",
-            borderRadius: "20px",
-            padding: "20px 16px 16px",
-            boxShadow: "inset 0 0 0 2px #030101, 0 0 0 2px #030101, 0 0 0 4px #FFFFFF",
-          }}
-        >
-          {/* Follow Our Socials */}
-          <p className="text-xs font-normal tracking-widest" style={{ color: "#030101" }}>
+        {/* Follow Our Socials */}
+        <div className="w-full max-w-xs flex flex-col items-center gap-4" style={{ marginTop: "20px" }}>
+          <p className="text-xs font-normal tracking-widest" style={{ color: "#FFFFFF" }}>
             Follow Our Socials
           </p>
           <div className="flex items-center gap-6">
@@ -295,10 +285,10 @@ export default function Welcome() {
           </div>
 
           {/* Divider */}
-          <div style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
+          <div style={{ width: "80%", height: "1px", background: "rgba(255,255,255,0.3)" }} />
 
           {/* Click to Rate Us */}
-          <p className="text-xs font-normal tracking-widest" style={{ color: "#030101" }}>
+          <p className="text-xs font-normal tracking-widest" style={{ color: "#FFFFFF" }}>
             Click To Rate Us
           </p>
           <div style={{ overflow: "hidden", height: "62px" }}>
@@ -316,10 +306,10 @@ export default function Welcome() {
           </div>
 
           {/* Divider */}
-          <div style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
+          <div style={{ width: "80%", height: "1px", background: "rgba(255,255,255,0.3)" }} />
 
           {/* Connect With Us */}
-          <p className="text-xs font-normal tracking-widest" style={{ color: "#030101" }}>
+          <p className="text-xs font-normal tracking-widest" style={{ color: "#FFFFFF" }}>
             Connect With Us
           </p>
           <div className="flex items-start justify-center gap-4">
@@ -329,7 +319,7 @@ export default function Welcome() {
               data-testid="button-connect-locate"
             >
               <img src={mapsImg} alt="Google Maps" className="w-12 h-12 rounded-lg object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>LOCATE</span>
+              <span className="text-xs font-medium" style={{ color: "#FFFFFF" }}>LOCATE</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -337,7 +327,7 @@ export default function Welcome() {
               data-testid="button-connect-call"
             >
               <img src={callImg} alt="Call" className="w-12 h-12 rounded-full object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>CALL</span>
+              <span className="text-xs font-medium" style={{ color: "#FFFFFF" }}>CALL</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -345,7 +335,7 @@ export default function Welcome() {
               data-testid="button-connect-chat"
             >
               <img src={whatsappImg} alt="WhatsApp" className="w-12 h-12 rounded-xl object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>CHAT</span>
+              <span className="text-xs font-medium" style={{ color: "#FFFFFF" }}>CHAT</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -353,14 +343,14 @@ export default function Welcome() {
               data-testid="button-connect-email"
             >
               <img src={mailImg} alt="Email" className="w-12 h-12 rounded-lg object-cover" />
-              <span className="text-xs font-medium" style={{ color: "#030101" }}>EMAIL</span>
+              <span className="text-xs font-medium" style={{ color: "#FFFFFF" }}>EMAIL</span>
             </button>
           </div>
 
-          {/* Footer inside card */}
+          {/* Footer */}
           <p
             className="cursor-pointer text-xs font-normal tracking-widest"
-            style={{ color: "#030101", textTransform: "lowercase", opacity: 0.6 }}
+            style={{ color: "#FFFFFF", textTransform: "lowercase", opacity: 0.6 }}
             onClick={() => handleSocialClick(links.website)}
             data-testid="text-website-footer"
           >
