@@ -43,7 +43,7 @@ const DEFAULT_LINKS: SocialLinks = {
   call: "tel:+918278251111",
   whatsapp: "https://wa.me/918278251111",
   email: "mailto:info@barrelborn.in",
-  website: "https://www.atdigitalmenu.com",
+  website: "https://www.tarangkitchenandbar.com",
 };
 
 const DEFAULT_WELCOME_UI: WelcomeScreenUI = {
@@ -250,7 +250,7 @@ export default function Welcome() {
           className="social-card w-full max-w-xs flex flex-col items-center gap-4"
           style={{ marginTop: "20px" }}
         >
-          <p className="social-card-label text-xs font-normal tracking-widest">
+          <p className="social-card-label text-xs font-medium tracking-widest">
             Follow Our Socials
           </p>
           <div className="flex items-center gap-6">
@@ -281,7 +281,7 @@ export default function Welcome() {
           <div className="social-card-divider" style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
 
           {/* Click to Rate Us */}
-          <p className="social-card-label text-xs font-normal tracking-widest">
+          <p className="social-card-label text-xs font-medium tracking-widest">
             Click To Rate Us
           </p>
           <div style={{ overflow: "hidden", height: "62px" }}>
@@ -302,7 +302,7 @@ export default function Welcome() {
           <div className="social-card-divider" style={{ width: "80%", height: "1px", background: "rgba(3,1,1,0.2)" }} />
 
           {/* Connect With Us */}
-          <p className="social-card-label text-xs font-normal tracking-widest">
+          <p className="social-card-label text-xs font-medium tracking-widest">
             Connect With Us
           </p>
           <div className="flex items-start justify-center gap-4">
@@ -312,7 +312,7 @@ export default function Welcome() {
               data-testid="button-connect-locate"
             >
               <img src={mapsImg} alt="Google Maps" className="w-12 h-12 rounded-lg object-cover" />
-              <span className="social-card-label text-xs font-medium">LOCATE</span>
+              <span className="social-card-label text-xs font-semibold">LOCATE</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -320,7 +320,7 @@ export default function Welcome() {
               data-testid="button-connect-call"
             >
               <img src={callImg} alt="Call" className="w-12 h-12 rounded-full object-cover" />
-              <span className="social-card-label text-xs font-medium">CALL</span>
+              <span className="social-card-label text-xs font-semibold">CALL</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -328,7 +328,7 @@ export default function Welcome() {
               data-testid="button-connect-chat"
             >
               <img src={whatsappImg} alt="WhatsApp" className="w-12 h-12 rounded-xl object-cover" />
-              <span className="social-card-label text-xs font-medium">CHAT</span>
+              <span className="social-card-label text-xs font-semibold">CHAT</span>
             </button>
             <button
               className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -336,14 +336,14 @@ export default function Welcome() {
               data-testid="button-connect-email"
             >
               <img src={mailImg} alt="Email" className="w-12 h-12 rounded-lg object-cover" />
-              <span className="social-card-label text-xs font-medium">EMAIL</span>
+              <span className="social-card-label text-xs font-semibold">EMAIL</span>
             </button>
           </div>
 
           {/* Footer */}
           <p
-            className="social-card-label cursor-pointer text-xs font-normal tracking-widest"
-            style={{ textTransform: "lowercase", opacity: 0.6 }}
+            className="social-card-label cursor-pointer text-xs font-medium tracking-widest"
+            style={{ textTransform: "lowercase" }}
             onClick={() => handleSocialClick(links.website)}
             data-testid="text-website-footer"
           >

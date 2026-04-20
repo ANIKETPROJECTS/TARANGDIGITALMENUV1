@@ -303,10 +303,10 @@
   color: #E49B1D;
 }
 .btn-explore .btn-icon {
-  filter: brightness(0) saturate(100%);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(98%) saturate(700%) hue-rotate(5deg) brightness(106%);
 }
 [data-theme="light"] .btn-explore .btn-icon {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(98%) saturate(700%) hue-rotate(5deg) brightness(106%);
 }
 
 /* Welcome page — social card */
