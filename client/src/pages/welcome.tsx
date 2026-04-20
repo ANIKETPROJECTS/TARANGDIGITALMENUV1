@@ -235,9 +235,9 @@ export default function Welcome() {
           onClick={handleExploreMenu}
           className="w-full max-w-xs py-4 font-semibold rounded-full transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
           style={{
-            background: "#c4722a",
+            background: "#030101",
             border: "none",
-            color: "#030101",
+            color: "#e49b1d",
             marginTop: "-10px",
             fontSize: "17px",
           }}
@@ -248,10 +248,10 @@ export default function Welcome() {
             alt=""
             className="w-7 h-7 object-contain"
             style={{
-              filter: "brightness(0) saturate(100%)",
+              filter: "brightness(0) saturate(100%) invert(65%) sepia(60%) saturate(600%) hue-rotate(5deg) brightness(100%) contrast(95%)",
             }}
           />
-          <span style={{ color: "#030101" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
+          <span style={{ color: "#e49b1d" }}>{welcomeUI.buttonText || t.exploreMenu}</span>
         </button>
 
         {/* Follow Our Socials */}
