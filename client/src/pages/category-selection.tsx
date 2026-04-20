@@ -340,9 +340,9 @@ export default function CategorySelection() {
 
             <div className="flex-1 flex justify-center items-center">
               <img
-                src="/tarang-logo-text-nobg.png"
+                src="/tarang-logo-header-cropped.png"
                 alt="Tarang Kitchen & Bar"
-                style={{ height: "68px", width: "auto", objectFit: "contain", display: "block", transform: "scale(1.35)", transformOrigin: "center" }}
+                style={{ height: "44px", width: "188px", objectFit: "contain", display: "block", transform: "scale(1.28)", transformOrigin: "center" }}
                 data-testid="img-logo"
               />
             </div>

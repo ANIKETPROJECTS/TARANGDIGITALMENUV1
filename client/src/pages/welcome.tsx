@@ -309,45 +309,45 @@ export default function Welcome() {
           <p className="social-card-label text-xs font-medium tracking-widest">
             Connect With Us
           </p>
-          <div className="flex flex-wrap items-start justify-center gap-3">
+          <div className="grid grid-cols-5 items-start justify-items-center gap-1 w-full">
             <button
-              className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
+              className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
               onClick={() => handleSocialClick(links.locate)}
               data-testid="button-connect-locate"
             >
-              <img src={mapsImg} alt="Google Maps" className="w-12 h-12 rounded-lg object-cover" />
+              <img src={mapsImg} alt="Google Maps" className="w-10 h-10 rounded-lg object-cover" />
               <span className="social-card-label text-xs font-semibold">LOCATE</span>
             </button>
             <button
-              className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
+              className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
               onClick={() => handleSocialClick(links.call)}
               data-testid="button-connect-call"
             >
-              <img src={callImg} alt="Call" className="w-12 h-12 rounded-full object-cover" />
+              <img src={callImg} alt="Call" className="w-10 h-10 rounded-full object-cover" />
               <span className="social-card-label text-xs font-semibold">CALL</span>
             </button>
             <button
-              className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
+              className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
               onClick={() => handleSocialClick(links.whatsapp)}
               data-testid="button-connect-chat"
             >
-              <img src={whatsappImg} alt="WhatsApp" className="w-12 h-12 rounded-xl object-cover" />
+              <img src={whatsappImg} alt="WhatsApp" className="w-10 h-10 rounded-xl object-cover" />
               <span className="social-card-label text-xs font-semibold">CHAT</span>
             </button>
             <button
-              className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
+              className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
               onClick={() => handleSocialClick(links.email)}
               data-testid="button-connect-email"
             >
-              <img src={mailImg} alt="Email" className="w-12 h-12 rounded-lg object-cover" />
+              <img src={mailImg} alt="Email" className="w-10 h-10 rounded-lg object-cover" />
               <span className="social-card-label text-xs font-semibold">EMAIL</span>
             </button>
             <button
-              className="flex flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
+              className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
               onClick={() => setShowReservation(true)}
               data-testid="button-connect-reservation"
             >
-              <img src={reservationImg} alt="Reservation" className="w-12 h-12 rounded-xl object-contain" />
+              <img src={reservationImg} alt="Reservation" className="w-10 h-10 rounded-xl object-contain" />
               <span className="social-card-label text-xs font-semibold">BOOK</span>
             </button>
           </div>
