@@ -63,13 +63,9 @@ function ThemeToggle() {
         width: "88px",
         height: "36px",
         padding: "3px",
-        background: isDark ? "#1C1500" : "#E4E4E4",
-        border: isDark
-          ? "1.5px solid rgba(212,175,55,0.4)"
-          : "1.5px solid rgba(0,0,0,0.12)",
-        boxShadow: isDark
-          ? "inset 0 1px 3px rgba(0,0,0,0.6)"
-          : "inset 0 2px 4px rgba(0,0,0,0.12)",
+        background: "#030101",
+        border: "1.5px solid #E49B1D",
+        boxShadow: "inset 0 1px 3px rgba(0,0,0,0.4)",
       }}
       data-testid="button-theme-toggle"
     >
@@ -100,7 +96,7 @@ function ThemeToggle() {
           <span
             className="flex-1 text-center font-bold"
             style={{
-              color: "#D4AF37",
+              color: "#E49B1D",
               fontSize: "9px",
               letterSpacing: "0.06em",
               fontFamily: "'DM Sans', sans-serif",
@@ -114,7 +110,7 @@ function ThemeToggle() {
           <span
             className="flex-1 text-center font-bold"
             style={{
-              color: "#555",
+              color: "#E49B1D",
               fontSize: "9px",
               letterSpacing: "0.06em",
               fontFamily: "'DM Sans', sans-serif",
