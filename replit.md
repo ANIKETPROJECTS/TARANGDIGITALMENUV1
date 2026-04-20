@@ -48,12 +48,13 @@ These must be configured as Replit Secrets for the app to work:
 
 | Secret Key | Description | Where to find |
 |---|---|---|
-| `MONGODB_URI` | MongoDB Atlas connection string | `ecosystem.config.cjs` → `env.MONGODB_URI` |
-| `SESSION_SECRET` | Express session secret key | `ecosystem.config.cjs` → `env.SESSION_SECRET` |
+| `MONGODB_URI` | MongoDB Atlas connection string | MongoDB Atlas connection settings |
+| `SESSION_SECRET` | Express session secret key | Generate a long random value |
+| `ADMIN_API_TOKEN` | Server-side token for protected admin API endpoints | Generate a long random value |
 
 **MongoDB URI format:** `mongodb+srv://<user>:<password>@<cluster>.mongodb.net/?appName=atdigitalmenu`
 
-> On fresh import: open `ecosystem.config.cjs`, copy the `MONGODB_URI` and `SESSION_SECRET` values, and add them as Replit Secrets (lock icon in sidebar).
+> On fresh import: add the required values as Replit Secrets. Do not commit production credentials into source files.
 
 ## External Dependencies
 

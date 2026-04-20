@@ -8,9 +8,10 @@ module.exports = {
     max_memory_restart: "1G",
     env: {
       NODE_ENV: "production",
-      PORT: 3002,
-      MONGODB_URI: "mongodb+srv://sairajkoyande_db_user:a5RlALolj2OOnZ4q@atdigitalmenu.za2j2lz.mongodb.net/?appName=atdigitalmenu",
-      SESSION_SECRET: "f7k2$Xqp9mLzR4#vNwT8@cYdJeA3bQsU"
+      PORT: process.env.PORT || 3002,
+      MONGODB_URI: process.env.MONGODB_URI,
+      SESSION_SECRET: process.env.SESSION_SECRET,
+      ADMIN_API_TOKEN: process.env.ADMIN_API_TOKEN
     }
   }]
 };

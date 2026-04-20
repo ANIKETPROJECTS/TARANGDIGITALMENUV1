@@ -3,6 +3,15 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertCartItemSchema, insertCustomerSchema, updateMenuItemFlagsSchema, insertReservationSchema } from "@shared/schema";
 
+function getAdminToken() {
+  return process.env.ADMIN_API_TOKEN || (process.env.NODE_ENV !== "production" ? "admin123" : "");
+}
+
+function isAuthorizedAdmin(authHeader: string | undefined) {
+  const token = getAdminToken();
+  return Boolean(token && authHeader === `Bearer ${token}`);
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Customer routes
   app.post("/api/customers", async (req, res) => {
@@ -18,7 +27,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/customers", async (req, res) => {
     // Basic auth for admin view (should be more robust in production)
     const authHeader = req.headers.authorization;
-    if (!authHeader || authHeader !== `Bearer admin123`) {
+    if (!isAuthorizedAdmin(authHeader)) {
       return res.status(401).json({ message: "Unauthorized" });
     }
     try {
@@ -289,7 +298,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get("/api/reservations", async (req, res) => {
     const authHeader = req.headers.authorization;
-    if (!authHeader || authHeader !== `Bearer admin123`) {
+    if (!isAuthorizedAdmin(authHeader)) {
       return res.status(401).json({ message: "Unauthorized" });
     }
     try {

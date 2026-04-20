@@ -932,5 +932,10 @@ export class MongoStorage implements IStorage {
   }
 }
 
-const connectionString = process.env.MONGODB_URI || "";
+const connectionString = process.env.MONGODB_URI;
+
+if (!connectionString) {
+  throw new Error("MONGODB_URI environment variable is required");
+}
+
 export const storage = new MongoStorage(connectionString);
