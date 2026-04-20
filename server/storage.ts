@@ -30,6 +30,7 @@ export interface IStorage {
   createOrUpdateCustomer(customer: InsertCustomer): Promise<{ customer: Customer; isNew: boolean }>;
 
   getSocialLinks(): Promise<SocialLinks | null>;
+  updateSocialLinks(data: Partial<Omit<SocialLinks, '_id'>>): Promise<SocialLinks | null>;
   getWelcomeScreenUI(): Promise<WelcomeScreenUI | null>;
   getCoupons(): Promise<Coupon[]>;
   getCarouselImages(): Promise<CarouselImage[]>;
@@ -533,6 +534,17 @@ export class MongoStorage implements IStorage {
 
   async getSocialLinks(): Promise<SocialLinks | null> {
     return await this.linksCollection.findOne({});
+  }
+
+  async updateSocialLinks(data: Partial<Omit<SocialLinks, '_id'>>): Promise<SocialLinks | null> {
+    const existing = await this.linksCollection.findOne({});
+    if (!existing) return null;
+    const updated = await this.linksCollection.findOneAndUpdate(
+      { _id: existing._id },
+      { $set: data },
+      { returnDocument: 'after' }
+    );
+    return updated;
   }
 
   async getWelcomeScreenUI(): Promise<WelcomeScreenUI | null> {

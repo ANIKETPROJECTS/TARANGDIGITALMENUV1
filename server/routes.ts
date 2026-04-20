@@ -218,6 +218,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.patch("/api/social-links", async (req, res) => {
+    try {
+      const updated = await storage.updateSocialLinks(req.body);
+      if (!updated) return res.status(404).json({ message: "Social links not found" });
+      res.json(updated);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update social links" });
+    }
+  });
+
   // Get categories (legacy - returns flat list of DB category strings)
   app.get("/api/categories", async (req, res) => {
     try {
