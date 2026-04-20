@@ -231,7 +231,7 @@ export default function CategoryDetail() {
               size="icon"
               onClick={() => setLocation("/menu")}
               className="hover:bg-transparent flex-shrink-0"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "#E49B1D" }}
               data-testid="button-back"
             >
               <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -241,7 +241,7 @@ export default function CategoryDetail() {
               className="font-semibold tracking-widest uppercase text-center flex-1"
               style={{
                 fontSize: "clamp(14px, 4vw, 20px)",
-                color: "#D4AF37",
+                color: "#E49B1D",
                 fontFamily: "'DM Sans', sans-serif",
               }}
             >
@@ -255,14 +255,14 @@ export default function CategoryDetail() {
 
       <div className="container mx-auto px-3 sm:px-4 py-4 pb-24">
         <div className="relative mb-4">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" style={{ color: "#D4AF37" }} />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" style={{ color: "#E49B1D" }} />
           <Input
             type="text"
             placeholder={`Search ${mainCategory.displayLabel.toLowerCase()}...`}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 pr-12 h-11 rounded-full border-2 text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-[#D4AF37]/40 bg-transparent"
-            style={{ borderColor: "#D4AF37" }}
+            className="pl-10 pr-12 h-11 rounded-full border-2 text-white placeholder:text-white/50 focus-visible:ring-2 focus-visible:ring-[#E49B1D]/40 bg-transparent"
+            style={{ borderColor: "#E49B1D" }}
             data-testid="input-search"
           />
           {voiceSearchSupported && (
@@ -276,7 +276,7 @@ export default function CategoryDetail() {
               {isListening ? (
                 <MicOff className="h-4 w-4 text-red-500 animate-pulse" />
               ) : (
-                <Mic className="h-4 w-4" style={{ color: "#D4AF37" }} />
+                <Mic className="h-4 w-4" style={{ color: "#E49B1D" }} />
               )}
             </Button>
           )}
@@ -288,7 +288,7 @@ export default function CategoryDetail() {
             size="icon"
             onClick={() => scrollSubcategories("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 rounded-full h-8 w-8 hover:bg-transparent"
-            style={{ backgroundColor: "rgba(212,175,55,0.15)", color: "#D4AF37" }}
+            style={{ backgroundColor: "rgba(228,155,29,0.15)", color: "#E49B1D" }}
             data-testid="button-scroll-left"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -310,8 +310,8 @@ export default function CategoryDetail() {
                 }}
                 className="flex-shrink-0 flex flex-col items-center p-2 rounded-xl transition-all duration-200 min-w-[80px]"
                 style={{
-                  backgroundColor: activeSubcategory === subcat.id ? "rgba(212,175,55,0.2)" : "rgba(255,255,255,0.05)",
-                  border: activeSubcategory === subcat.id ? "2px solid #D4AF37" : "2px solid rgba(212,175,55,0.2)",
+                  backgroundColor: activeSubcategory === subcat.id ? "rgba(228,155,29,0.2)" : "rgba(255,255,255,0.05)",
+                  border: activeSubcategory === subcat.id ? "2px solid #E49B1D" : "2px solid rgba(228,155,29,0.2)",
                 }}
                 data-testid={`subcategory-${subcat.id}`}
               >
@@ -329,7 +329,7 @@ export default function CategoryDetail() {
                   className="text-[10px] font-medium text-center leading-tight tracking-widest uppercase"
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    color: activeSubcategory === subcat.id ? "#D4AF37" : "#DCD4C8",
+                    color: activeSubcategory === subcat.id ? "#E49B1D" : "#DCD4C8",
                   }}
                 >
                   {subcat.displayLabel}
@@ -343,7 +343,7 @@ export default function CategoryDetail() {
             size="icon"
             onClick={() => scrollSubcategories("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 rounded-full h-8 w-8 hover:bg-transparent"
-            style={{ backgroundColor: "rgba(212,175,55,0.15)", color: "#D4AF37" }}
+            style={{ backgroundColor: "rgba(228,155,29,0.15)", color: "#E49B1D" }}
             data-testid="button-scroll-right"
           >
             <ChevronRight className="h-4 w-4" />
@@ -356,8 +356,8 @@ export default function CategoryDetail() {
           </div>
         ) : filteredItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[300px] text-center px-4">
-            <Search className="h-12 w-12 mb-4" style={{ color: "rgba(212,175,55,0.4)" }} />
-            <h3 className="text-lg font-semibold mb-2 tracking-widest uppercase" style={{ color: "#D4AF37", fontFamily: "'DM Sans', sans-serif" }}>
+            <Search className="h-12 w-12 mb-4" style={{ color: "rgba(228,155,29,0.4)" }} />
+            <h3 className="text-lg font-semibold mb-2 tracking-widest uppercase" style={{ color: "#E49B1D", fontFamily: "'DM Sans', sans-serif" }}>
               No items found
             </h3>
             <p className="text-sm" style={{ color: "#DCD4C8", opacity: 0.6 }}>

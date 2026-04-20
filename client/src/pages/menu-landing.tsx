@@ -57,9 +57,9 @@ function CouponCard({
       <div
         className="flex rounded-2xl overflow-hidden relative"
         style={{
-          border: "1.5px solid #D4AF37",
+          border: "1.5px solid #E49B1D",
           minHeight: "96px",
-          boxShadow: "0 4px 20px rgba(212,175,55,0.18)",
+          boxShadow: "0 4px 20px rgba(228,155,29,0.18)",
         }}
       >
         {/* LEFT — gold gradient discount panel */}
@@ -67,7 +67,7 @@ function CouponCard({
           className="flex flex-col items-center justify-center px-4 py-3 flex-shrink-0"
           style={{
             width: "37%",
-            background: "linear-gradient(90deg, #D4AF37, #E6C55A)",
+            background: "linear-gradient(90deg, #E49B1D, #E6C55A)",
             borderRight: "1.5px dashed rgba(61,49,0,0.35)",
           }}
         >
@@ -146,14 +146,14 @@ function CouponsFullScreen({
             className="h-[3px] w-full flex-shrink-0"
             style={{
               background:
-                "linear-gradient(90deg, transparent, #D4AF37, #F0CC60, #D4AF37, transparent)",
+                "linear-gradient(90deg, transparent, #E49B1D, #F0CC60, #E49B1D, transparent)",
             }}
           />
 
           {/* Header */}
           <div
             className="flex items-center justify-between px-5 py-4 flex-shrink-0"
-            style={{ borderBottom: "1px solid rgba(212,175,55,0.18)" }}
+            style={{ borderBottom: "1px solid rgba(228,155,29,0.18)" }}
           >
             <div>
               <p
@@ -179,8 +179,8 @@ function CouponsFullScreen({
               onClick={onClose}
               className="w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-90"
               style={{
-                background: "rgba(212,175,55,0.12)",
-                border: "1.5px solid rgba(212,175,55,0.45)",
+                background: "rgba(228,155,29,0.12)",
+                border: "1.5px solid rgba(228,155,29,0.45)",
                 color: "var(--bb-gold)",
               }}
               data-testid="button-close-coupons-fullscreen"
@@ -202,9 +202,9 @@ function CouponsFullScreen({
                 <div
                   className="flex rounded-2xl overflow-hidden relative w-full"
                   style={{
-                    border: "1.5px solid #D4AF37",
+                    border: "1.5px solid #E49B1D",
                     minHeight: "104px",
-                    boxShadow: "0 4px 20px rgba(212,175,55,0.18)",
+                    boxShadow: "0 4px 20px rgba(228,155,29,0.18)",
                   }}
                 >
                   {/* LEFT — gold gradient panel */}
@@ -212,7 +212,7 @@ function CouponsFullScreen({
                     className="flex flex-col items-center justify-center px-5 py-4 flex-shrink-0"
                     style={{
                       width: "36%",
-                      background: "linear-gradient(135deg, #D4AF37, #E6C55A)",
+                      background: "linear-gradient(135deg, #E49B1D, #E6C55A)",
                       borderRight: "1.5px dashed rgba(61,49,0,0.35)",
                     }}
                   >
@@ -288,7 +288,7 @@ function CouponsFullScreen({
             className="h-[2px] w-full flex-shrink-0"
             style={{
               background:
-                "linear-gradient(90deg, transparent, #D4AF37, transparent)",
+                "linear-gradient(90deg, transparent, #E49B1D, transparent)",
             }}
           />
         </motion.div>
@@ -391,9 +391,9 @@ export default function MenuLanding() {
       <header
         className="bb-header sticky top-0 z-30 elegant-shadow"
       >
-        <div className="container mx-auto px-2 sm:px-4 py-2">
-          <div className="grid grid-cols-3 items-center w-full">
-            <div className="flex items-center space-x-2 sm:space-x-3">
+        <div className="container mx-auto px-2 sm:px-4 py-1">
+          <div className="flex items-center w-full">
+            <div className="flex items-center flex-shrink-0" style={{ width: "44px" }}>
               <Button
                 variant="ghost"
                 size="icon"
@@ -406,16 +406,16 @@ export default function MenuLanding() {
               </Button>
             </div>
 
-            <div className="flex justify-center items-center">
+            <div className="flex-1 flex justify-center items-center">
               <img
                 src="/tarang-logo-text-nobg.png"
                 alt="Tarang Kitchen & Bar"
-                style={{ width: "260px", height: "50px", objectFit: "contain", display: "block" }}
+                style={{ height: "68px", width: "auto", objectFit: "contain", display: "block" }}
                 data-testid="img-logo"
               />
             </div>
 
-            <div className="flex justify-end items-center space-x-1 sm:space-x-2 md:space-x-3">
+            <div className="flex justify-end items-center flex-shrink-0" style={{ width: "44px" }}>
               <Button
                 variant="ghost"
                 size="icon"
@@ -606,7 +606,7 @@ export default function MenuLanding() {
         {carouselImages.length > 0 && (
           <div
             className="rounded-xl p-[2px] mb-3"
-            style={{ background: "linear-gradient(90deg, #D4AF37, #E6C55A)" }}
+            style={{ background: "linear-gradient(90deg, #E49B1D, #E6C55A)" }}
           >
             <div
               className="relative rounded-[10px] overflow-hidden cursor-pointer group"
@@ -684,7 +684,7 @@ export default function MenuLanding() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   style={{
-                    background: "linear-gradient(90deg, #D4AF37, #E6C55A)",
+                    background: "linear-gradient(90deg, #E49B1D, #E6C55A)",
                     padding: "2px",
                     borderRadius: "10px",
                   }}

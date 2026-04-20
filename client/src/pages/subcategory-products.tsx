@@ -332,7 +332,7 @@ export default function SubcategoryProducts() {
           </div>
         ) : filteredItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center min-h-[300px] text-center px-4">
-            <Search className="h-12 w-12 mb-4" style={{ color: "rgba(212,175,55,0.4)" }} />
+            <Search className="h-12 w-12 mb-4" style={{ color: "rgba(228,155,29,0.4)" }} />
             <h3 className="text-lg font-semibold mb-2 tracking-widest uppercase" style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--bb-gold)" }}>
               {t.noItemsFound}
             </h3>

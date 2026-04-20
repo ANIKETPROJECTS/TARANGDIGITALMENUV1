@@ -323,9 +323,9 @@ export default function CategorySelection() {
   return (
     <div className="bb-bg min-h-screen">
       <header className="bb-header sticky top-0 z-30 elegant-shadow">
-        <div className="container mx-auto px-2 sm:px-4 py-2">
-          <div className="grid grid-cols-3 items-center w-full">
-            <div className="flex items-center space-x-2 sm:space-x-3">
+        <div className="container mx-auto px-2 sm:px-4 py-1">
+          <div className="flex items-center w-full">
+            <div className="flex items-center flex-shrink-0" style={{ width: "44px" }}>
               <Button
                 variant="ghost"
                 size="icon"
@@ -338,16 +338,16 @@ export default function CategorySelection() {
               </Button>
             </div>
 
-            <div className="flex justify-center items-center">
+            <div className="flex-1 flex justify-center items-center">
               <img
                 src="/tarang-logo-text-nobg.png"
                 alt="Tarang Kitchen & Bar"
-                style={{ width: "200px", height: "50px", objectFit: "contain", display: "block" }}
+                style={{ height: "68px", width: "auto", objectFit: "contain", display: "block" }}
                 data-testid="img-logo"
               />
             </div>
 
-            <div className="flex justify-end items-center space-x-1 sm:space-x-2 md:space-x-3">
+            <div className="flex justify-end items-center flex-shrink-0" style={{ width: "44px" }}>
               <Button
                 variant="ghost"
                 size="icon"
@@ -473,7 +473,7 @@ export default function CategorySelection() {
           <div className="flex flex-col gap-6">
             {filteredItems.length === 0 ? (
               <div className="flex flex-col items-center justify-center min-h-[200px] text-center">
-                <Search className="h-12 w-12 mb-4" style={{ color: "rgba(212,175,55,0.4)" }} />
+                <Search className="h-12 w-12 mb-4" style={{ color: "rgba(228,155,29,0.4)" }} />
                 <h3 className="text-lg font-semibold mb-2 tracking-widest uppercase" style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--bb-gold)" }}>
                   {t.noItemsFound}
                 </h3>
@@ -510,7 +510,7 @@ export default function CategorySelection() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   style={{
-                    background: "linear-gradient(90deg, #D4AF37, #E6C55A)",
+                    background: "linear-gradient(90deg, #E49B1D, #E6C55A)",
                     padding: "2px",
                     borderRadius: "10px",
                   }}
