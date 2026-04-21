@@ -399,7 +399,7 @@ export default function MenuLanding() {
                 size="icon"
                 onClick={() => setLocation("/")}
                 className="hover:bg-transparent flex-shrink-0"
-                style={{ color: "var(--bb-text)" }}
+                style={{ color: "#333333" }}
                 data-testid="button-back"
               >
                 <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -410,7 +410,7 @@ export default function MenuLanding() {
               <img
                 src="/tarang-logo-circle.png"
                 alt="Tarang Kitchen & Bar"
-                style={{ height: "68px", width: "68px", objectFit: "contain", display: "block", transform: "scale(1.45)", transformOrigin: "center" }}
+                style={{ height: "68px", width: "68px", objectFit: "contain", display: "block", transform: "scale(1.45)", transformOrigin: "center", marginTop: "8px" }}
                 data-testid="img-logo"
               />
             </div>
@@ -421,7 +421,7 @@ export default function MenuLanding() {
                 size="icon"
                 onClick={() => setShowHamburgerMenu(!showHamburgerMenu)}
                 className="hover:bg-transparent"
-                style={{ color: "var(--bb-text)" }}
+                style={{ color: "#333333" }}
                 data-testid="button-menu-toggle"
               >
                 {showHamburgerMenu ? (

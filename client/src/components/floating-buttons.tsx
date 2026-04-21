@@ -239,16 +239,10 @@ export default function FloatingButtons({ isMenuOpen = false }: FloatingButtonsP
         <motion.button
           className="fixed bottom-6 left-4 z-40 flex items-center gap-2 pl-1 pr-4 py-1 rounded-full shadow-lg"
           style={{
-            background: isDark
-              ? showSmartMenu ? "linear-gradient(135deg, #2a1a00, #1A1408)" : "linear-gradient(135deg, #3D3100, #1A1408)"
-              : "#FFFFFF",
-            border: isDark
-              ? showSmartMenu ? "1.5px solid rgba(228,155,29,0.9)" : "1.5px solid rgba(228,155,29,0.6)"
-              : "1.5px solid rgba(228,155,29,0.5)",
+            background: "#FFFFFF",
+            border: showSmartMenu ? "1.5px solid rgba(228,155,29,0.9)" : "1.5px solid rgba(228,155,29,0.5)",
             backdropFilter: "blur(10px)",
-            boxShadow: isDark
-              ? showSmartMenu ? "0 4px 24px rgba(228,155,29,0.35)" : "0 4px 24px rgba(228,155,29,0.15)"
-              : "0 4px 16px rgba(0,0,0,0.12)",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -287,16 +281,10 @@ export default function FloatingButtons({ isMenuOpen = false }: FloatingButtonsP
           onClick={() => callWaiterMutation.mutate(!waiterCalled)}
           className="flex items-center gap-2 pl-1 pr-4 py-1 rounded-full shadow-lg"
           style={{
-            background: isDark
-              ? waiterCalled ? "linear-gradient(135deg, #1a3a1a, #0f2a0f)" : "linear-gradient(135deg, #3D3100, #1A1408)"
-              : "#FFFFFF",
-            border: isDark
-              ? waiterCalled ? "1.5px solid rgba(74,222,128,0.6)" : "1.5px solid rgba(228,155,29,0.7)"
-              : waiterCalled ? "1.5px solid rgba(74,222,128,0.6)" : "1.5px solid rgba(228,155,29,0.5)",
+            background: "#FFFFFF",
+            border: waiterCalled ? "1.5px solid rgba(74,222,128,0.6)" : "1.5px solid rgba(228,155,29,0.5)",
             backdropFilter: "blur(10px)",
-            boxShadow: isDark
-              ? waiterCalled ? "0 4px 24px rgba(74,222,128,0.25)" : "0 4px 24px rgba(228,155,29,0.2)"
-              : "0 4px 16px rgba(0,0,0,0.12)",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
           }}
           data-testid="button-call-waiter"
         >
