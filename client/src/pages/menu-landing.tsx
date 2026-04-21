@@ -406,11 +406,11 @@ export default function MenuLanding() {
               </Button>
             </div>
 
-            <div className="flex-1 flex justify-center items-center overflow-visible">
+            <div className="flex-1 flex justify-center items-center">
               <img
-                src="/tarang-logo-header-cropped.png"
+                src="/tarang-logo-circle.png"
                 alt="Tarang Kitchen & Bar"
-                style={{ height: "72px", width: "340px", objectFit: "contain", display: "block", transform: "scale(1.7)", transformOrigin: "center" }}
+                style={{ height: "52px", width: "52px", objectFit: "contain", display: "block" }}
                 data-testid="img-logo"
               />
             </div>
