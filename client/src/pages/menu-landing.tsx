@@ -439,9 +439,7 @@ const planComparison = [
   { row: "Fish & Mutton", values: ["✗", "✗", "✗", "✓"] },
 ];
 
-function MenuAccordion({ section, defaultOpen = false }: { section: { icon: any; title: string; items: string[] }; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
-  const Icon = section.icon;
+function MenuAccordion({ section }: { section: { icon: any; title: string; items: string[] } }) {
   return (
     <div
       className="rounded-xl overflow-hidden"
@@ -449,71 +447,36 @@ function MenuAccordion({ section, defaultOpen = false }: { section: { icon: any;
         background: "rgba(228,155,29,0.06)",
         border: "1px solid rgba(228,155,29,0.25)",
       }}
+      data-testid={`section-${section.title}`}
     >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 active:scale-[0.99] transition-transform"
-        data-testid={`accordion-${section.title}`}
+      <div
+        className="w-full flex items-center justify-between px-4 py-3"
+        style={{ borderBottom: "1px solid rgba(228,155,29,0.18)" }}
       >
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: "linear-gradient(135deg, #E49B1D, #E6C55A)" }}
+        <p
+          className="text-[15px] font-bold uppercase tracking-wider"
+          style={{ color: "var(--bb-gold)", fontFamily: "'DM Sans', sans-serif" }}
+        >
+          {section.title}
+        </p>
+        <span
+          className="text-[12px] font-semibold tracking-wide flex-shrink-0"
+          style={{ color: "var(--bb-gold)", opacity: 0.75 }}
+        >
+          {section.items.length} items
+        </span>
+      </div>
+      <div className="px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
+        {section.items.map((item) => (
+          <span
+            key={item}
+            className="text-[14px] leading-snug"
+            style={{ color: "var(--bb-text)" }}
           >
-            <Icon className="w-4 h-4" style={{ color: "#3D3100" }} />
-          </div>
-          <div className="text-left min-w-0">
-            <p
-              className="text-[13px] font-bold uppercase tracking-wider truncate"
-              style={{ color: "var(--bb-gold)", fontFamily: "'DM Sans', sans-serif" }}
-            >
-              {section.title}
-            </p>
-            <p className="text-[10px] tracking-wide" style={{ color: "var(--bb-text)", opacity: 0.5 }}>
-              {section.items.length} items
-            </p>
-          </div>
-        </div>
-        <ChevronDown
-          className="w-4 h-4 flex-shrink-0 transition-transform"
-          style={{
-            color: "var(--bb-gold)",
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-          }}
-        />
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            style={{ overflow: "hidden" }}
-          >
-            <div className="px-4 pb-4 pt-1 grid grid-cols-2 gap-2">
-              {section.items.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md"
-                  style={{
-                    background: "rgba(228,155,29,0.08)",
-                    border: "1px solid rgba(228,155,29,0.15)",
-                  }}
-                >
-                  <Sparkles className="w-2.5 h-2.5 flex-shrink-0" style={{ color: "var(--bb-gold)", opacity: 0.7 }} />
-                  <span
-                    className="text-[11px] leading-tight"
-                    style={{ color: "var(--bb-text)" }}
-                  >
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -521,12 +484,12 @@ function MenuAccordion({ section, defaultOpen = false }: { section: { icon: any;
 function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [tab, setTab] = useState<"plans" | "compare" | "veg" | "nonveg" | "hall">("plans");
 
-  const tabs: { id: typeof tab; label: string; icon: any }[] = [
-    { id: "plans", label: "Plans", icon: PartyPopper },
-    { id: "compare", label: "Compare", icon: CheckCircle2 },
-    { id: "veg", label: "Veg", icon: Salad },
-    { id: "nonveg", label: "Non-Veg", icon: Drumstick },
-    { id: "hall", label: "Hall", icon: Users },
+  const tabs: { id: typeof tab; label: string }[] = [
+    { id: "plans", label: "Plans" },
+    { id: "veg", label: "Veg" },
+    { id: "nonveg", label: "Non-Veg" },
+    { id: "hall", label: "Hall" },
+    { id: "compare", label: "Compare" },
   ];
 
   return (
@@ -540,37 +503,24 @@ function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => 
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
           data-testid="modal-party-menu"
         >
-          {/* Top gold shimmer bar */}
-          <div
-            className="h-[3px] w-full flex-shrink-0"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, #E49B1D, #F0CC60, #E49B1D, transparent)",
-            }}
-          />
-
           {/* Header — centered Tarang logo */}
           <div
-            className="relative flex flex-col items-center px-4 pt-4 pb-3 flex-shrink-0"
+            className="relative flex flex-col items-center px-4 pt-2 pb-3 flex-shrink-0"
             style={{ borderBottom: "1px solid rgba(228,155,29,0.18)" }}
           >
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-90"
-              style={{
-                background: "rgba(228,155,29,0.12)",
-                border: "1.5px solid rgba(228,155,29,0.45)",
-                color: "var(--bb-gold)",
-              }}
+              className="absolute top-3 left-3 w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-90"
+              style={{ color: "#000" }}
               data-testid="button-close-party-menu"
             >
-              <X className="w-4 h-4" />
+              <ArrowLeft className="w-6 h-6" />
             </button>
 
             <img
               src="/tarang-logo-circle.png"
               alt="Tarang Kitchen & Bar"
-              className="w-20 h-20 object-contain mb-2"
+              className="w-28 h-28 object-contain mb-2"
               data-testid="img-party-menu-logo"
             />
 
@@ -597,15 +547,14 @@ function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => 
             className="flex-shrink-0 overflow-x-auto"
             style={{ borderBottom: "1px solid rgba(228,155,29,0.18)" }}
           >
-            <div className="flex gap-1 px-3 py-2 min-w-max">
+            <div className="flex gap-2 px-3 py-2.5 min-w-max">
               {tabs.map((t) => {
-                const Icon = t.icon;
                 const active = tab === t.id;
                 return (
                   <button
                     key={t.id}
                     onClick={() => setTab(t.id)}
-                    className="flex items-center gap-1.5 px-3.5 py-2 rounded-full transition-all active:scale-95"
+                    className="px-5 py-2.5 rounded-full transition-all active:scale-95"
                     style={{
                       background: active
                         ? "linear-gradient(135deg, #E49B1D, #E6C55A)"
@@ -614,12 +563,8 @@ function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => 
                     }}
                     data-testid={`tab-party-${t.id}`}
                   >
-                    <Icon
-                      className="w-3.5 h-3.5"
-                      style={{ color: active ? "#3D3100" : "var(--bb-gold)" }}
-                    />
                     <span
-                      className="text-[11px] font-bold uppercase tracking-wider"
+                      className="text-[14px] font-black uppercase tracking-wider"
                       style={{ color: active ? "#3D3100" : "var(--bb-gold)" }}
                     >
                       {t.label}
@@ -655,7 +600,6 @@ function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => 
                       style={{
                         background: "var(--bb-card)",
                         border: `1.5px solid ${plan.color}`,
-                        boxShadow: `0 6px 24px ${plan.glow}`,
                       }}
                       data-testid={`card-plan-${plan.id}`}
                     >
@@ -800,8 +744,8 @@ function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => 
                   <p className="text-center text-[12px] tracking-widest uppercase mb-2" style={{ color: "var(--bb-gold-2)", opacity: 0.85 }}>
                     Veg Menu · Item List
                   </p>
-                  {vegMenuSections.map((s, i) => (
-                    <MenuAccordion key={s.title} section={s} defaultOpen={i === 0} />
+                  {vegMenuSections.map((s) => (
+                    <MenuAccordion key={s.title} section={s} />
                   ))}
                 </motion.div>
               )}
@@ -817,8 +761,8 @@ function PartyMenuFullScreen({ open, onClose }: { open: boolean; onClose: () => 
                   <p className="text-center text-[12px] tracking-widest uppercase mb-2" style={{ color: "var(--bb-gold-2)", opacity: 0.85 }}>
                     Non-Veg Menu · Item List
                   </p>
-                  {nonVegMenuSections.map((s, i) => (
-                    <MenuAccordion key={s.title} section={s} defaultOpen={i === 0} />
+                  {nonVegMenuSections.map((s) => (
+                    <MenuAccordion key={s.title} section={s} />
                   ))}
                   <div
                     className="mt-3 p-3 rounded-xl text-[11px] leading-relaxed"
@@ -1442,12 +1386,11 @@ export default function MenuLanding() {
           transition={{ delay: 0.4 }}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className="block w-full mt-4 rounded-xl p-[2px] relative overflow-hidden"
-          style={{ background: "linear-gradient(90deg, #E49B1D, #E6C55A, #E49B1D)" }}
+          className="block w-full mt-4"
           data-testid="button-celebration-menu"
         >
           <div
-            className="rounded-[10px] overflow-hidden relative"
+            className="rounded-xl overflow-hidden relative"
             style={{ width: "100%", aspectRatio: "1024 / 240", background: "var(--bb-card)" }}
           >
             <img
