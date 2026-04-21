@@ -50,6 +50,12 @@ import celebrationMenuBannerImg from "@assets/Untitled_design_(13)_1776782517090
 import hallImage1 from "@assets/image_1776788010129.png";
 import hallImage2 from "@assets/image_1776788024450.png";
 import hallImage3 from "@assets/image_1776788050939.png";
+import soupManchowImg from "@assets/image_1776791999539.png";
+import soupSweetcornImg from "@assets/image_1776791301049.png";
+import soupHotSourImg from "@assets/image_1776791407057.png";
+import soupLemonCorianderImg from "@assets/image_1776791332518.png";
+import soupClearImg from "@assets/image_1776792098937.png";
+import soupTomatoImg from "@assets/image_1776792056827.png";
 import type { Logo } from "@shared/schema";
 
 
@@ -408,7 +414,14 @@ const occasions = [
 const vegMenuSections = [
   { icon: GlassWater, title: "Welcome Drinks / Mocktails", items: ["Blue Lagoon", "Spicy Guava", "Fruit Punch", "Virgin Mojito"] },
   { icon: GlassWater, title: "Fruit Juices", items: ["Pineapple Juice", "Watermelon Juice", "Orange Juice"] },
-  { icon: Soup, title: "Soups", items: ["Veg Manchow Soup", "Veg Sweetcorn Soup", "Veg Hot & Sour Soup", "Veg Lemon Coriander Soup", "Veg Clear Soup", "Tomato Soup"] },
+  { icon: Soup, title: "Soups", items: [
+    { name: "Veg Manchow Soup", image: soupManchowImg },
+    { name: "Veg Sweetcorn Soup", image: soupSweetcornImg },
+    { name: "Veg Hot & Sour Soup", image: soupHotSourImg },
+    { name: "Veg Lemon Coriander Soup", image: soupLemonCorianderImg },
+    { name: "Veg Clear Soup", image: soupClearImg },
+    { name: "Tomato Soup", image: soupTomatoImg },
+  ] },
   { icon: Utensils, title: "Starters – Veg", items: ["Veg Hot Basil", "Paneer Pahadi Tikka", "Paneer Tikka", "Paneer Hot Basil", "Paneer Burnt Garlic Dry", "Veg Manchurian Dry", "Cheese Corn Tikki", "Cheese Corn Balls"] },
   { icon: Utensils, title: "Main Course – Veg", items: ["Veg Maratha", "Veg Handi", "Veg Hariyali", "Veg Jaipuri", "Veg Kadai", "Veg Jalfrezi", "Aloo Gobi Masala", "Chhole Masala", "Aloo Jeera", "Paneer Butter Masala", "Paneer Tikka Masala", "Paneer Chatpata", "Paneer Do Pyaza", "Paneer Makhanwala", "Paneer Peshawari", "Paneer Handi", "Paneer Mutter Masala"] },
   { icon: Wheat, title: "Rotis", items: ["Roti", "Naan", "Kulcha"] },
@@ -442,7 +455,14 @@ const planComparison = [
   { row: "Fish & Mutton", values: ["✗", "✗", "✗", "✓"] },
 ];
 
-function MenuAccordion({ section }: { section: { icon: any; title: string; items: string[] } }) {
+type MenuItem = string | { name: string; image?: string };
+
+function MenuAccordion({ section }: { section: { icon: any; title: string; items: MenuItem[] } }) {
+  const normalized = section.items.map((it) =>
+    typeof it === "string" ? { name: it } : it
+  );
+  const hasImages = normalized.some((it) => !!it.image);
+
   return (
     <div
       className="rounded-xl overflow-hidden"
@@ -466,20 +486,58 @@ function MenuAccordion({ section }: { section: { icon: any; title: string; items
           className="text-[12px] font-semibold tracking-wide flex-shrink-0"
           style={{ color: "var(--bb-gold)", opacity: 0.75 }}
         >
-          {section.items.length} items
+          {normalized.length} items
         </span>
       </div>
-      <div className="px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
-        {section.items.map((item) => (
-          <span
-            key={item}
-            className="text-[14px] leading-snug"
-            style={{ color: "var(--bb-text)" }}
-          >
-            {item}
-          </span>
-        ))}
-      </div>
+      {hasImages ? (
+        <div className="px-3 py-2">
+          {normalized.map((item, idx) => (
+            <div
+              key={item.name}
+              className="flex items-center gap-3 py-2"
+              style={{
+                borderBottom:
+                  idx === normalized.length - 1
+                    ? "none"
+                    : "1px solid rgba(228,155,29,0.12)",
+              }}
+              data-testid={`item-${item.name}`}
+            >
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="flex-shrink-0 rounded-lg"
+                  style={{ width: 56, height: 56, objectFit: "cover" }}
+                />
+              ) : (
+                <div
+                  className="flex-shrink-0 rounded-lg"
+                  style={{ width: 56, height: 56, background: "rgba(228,155,29,0.12)" }}
+                />
+              )}
+              <span
+                className="text-[14px] font-semibold leading-snug"
+                style={{ color: "var(--bb-text)" }}
+              >
+                {item.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
+          {normalized.map((item) => (
+            <span
+              key={item.name}
+              className="text-[14px] leading-snug"
+              style={{ color: "var(--bb-text)" }}
+            >
+              {item.name}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
