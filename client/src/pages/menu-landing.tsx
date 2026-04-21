@@ -21,7 +21,7 @@ import { apiRequest } from "@/lib/queryClient";
 
 import premiumFoodImg from "@assets/image_1765866040643.png";
 import premiumBarImg from "@assets/stock_images/premium_whisky_cockt_68b3295e.jpg";
-import premiumDessertsImg from "@assets/image_1765866710467.png";
+import premiumDessertsImg from "@assets/image_1776752566455.png";
 import premiumMocktailsImg from "@assets/stock_images/premium_colorful_moc_1a15dee9.jpg";
 import cocktailsImg from "@assets/COCKTAILS_1766751289781.jpg";
 import craftedBeerImg from "@assets/CRAFTED_BEER_1766750491358.jpg";
@@ -383,6 +383,14 @@ export default function MenuLanding() {
   }, [carouselImages.length]);
 
   const handleCategoryClick = (categoryId: string) => {
+    if (categoryId === "mocktails") {
+      setLocation(`/menu/mocktails/mocktails-drinks`);
+      return;
+    }
+    if (categoryId === "desserts") {
+      setLocation(`/menu/food/desserts`);
+      return;
+    }
     setLocation(`/menu/${categoryId}`);
   };
 
@@ -670,7 +678,10 @@ export default function MenuLanding() {
         )}
 
         <div className="grid grid-cols-2 gap-3">
-          {menuCategories.map((category, index) => {
+          {[
+            ...menuCategories,
+            { id: "desserts", title: "Desserts", image: "", order: 99, visible: true, subcategories: [] } as MenuCategory,
+          ].map((category, index) => {
               const label = category.title;
               const imgSrc = failedImages.has(category.id)
                 ? fallbackImg
