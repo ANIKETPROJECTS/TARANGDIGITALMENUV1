@@ -2,6 +2,36 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import type { MenuItem } from "@shared/schema";
 import fallbackImg from "@assets/coming_soon_imagev2_1766811809828.jpg";
+import soupManchowImg from "@assets/image_1776791999539.png";
+import soupSweetcornImg from "@assets/image_1776791301049.png";
+import soupHotSourImg from "@assets/image_1776791407057.png";
+import soupLemonCorianderImg from "@assets/image_1776791332518.png";
+import soupClearImg from "@assets/image_1776792098937.png";
+import soupTomatoCreamImg from "@assets/image_1776792056827.png";
+import soupTomatoBowlImg from "@assets/image_1776791355739.png";
+import soupMushroomCreamImg from "@assets/image_1776791265999.png";
+
+const NAME_IMAGE_OVERRIDES: { match: (n: string) => boolean; image: string }[] = [
+  { match: (n) => n.includes("manchow"), image: soupManchowImg },
+  { match: (n) => n.includes("sweet") && n.includes("corn"), image: soupSweetcornImg },
+  { match: (n) => n.includes("hot") && n.includes("sour"), image: soupHotSourImg },
+  { match: (n) => n.includes("lemon") && n.includes("coriander"), image: soupLemonCorianderImg },
+  { match: (n) => n.includes("broccoli"), image: soupLemonCorianderImg },
+  { match: (n) => n.includes("burnt") && n.includes("garlic") && n.includes("soup"), image: soupMushroomCreamImg },
+  { match: (n) => n.includes("cream") && n.includes("mushroom"), image: soupMushroomCreamImg },
+  { match: (n) => n.includes("cream") && n.includes("tomato"), image: soupTomatoCreamImg },
+  { match: (n) => n.includes("mushroom") && n.includes("tomato"), image: soupMushroomCreamImg },
+  { match: (n) => n.includes("tomato") && n.includes("soup"), image: soupTomatoBowlImg },
+  { match: (n) => n.includes("clear") && n.includes("soup"), image: soupClearImg },
+];
+
+function getOverrideImage(name: string): string | null {
+  const n = name.toLowerCase();
+  for (const o of NAME_IMAGE_OVERRIDES) {
+    if (o.match(n)) return o.image;
+  }
+  return null;
+}
 
 interface DishCardProps {
   item: MenuItem;
@@ -9,12 +39,17 @@ interface DishCardProps {
 
 export default function DishCard({ item }: DishCardProps) {
   const [imgError, setImgError] = useState(false);
-  const imageUrl = imgError || !item.image ||
+  const override = getOverrideImage(item.name);
+  const isPlaceholderImage = !item.image ||
     item.image.includes("example.com") ||
     item.image.includes("unsplash.com") ||
     item.image.includes("placeholder.com") ||
-    item.image.includes("via.placeholder.com")
-    ? fallbackImg : item.image;
+    item.image.includes("via.placeholder.com");
+  const imageUrl = imgError
+    ? (override ?? fallbackImg)
+    : isPlaceholderImage
+      ? (override ?? fallbackImg)
+      : item.image;
 
   return (
     <motion.div
