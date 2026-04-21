@@ -391,7 +391,7 @@ export default function MenuLanding() {
       <header
         className="bb-header sticky top-0 z-30 elegant-shadow"
       >
-        <div className="container mx-auto px-2 sm:px-4 py-2.5">
+        <div className="container mx-auto px-2 sm:px-4 pt-1 pb-2.5">
           <div className="flex items-center w-full">
             <div className="flex items-center flex-shrink-0" style={{ width: "44px" }}>
               <Button
