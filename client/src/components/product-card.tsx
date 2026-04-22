@@ -33,7 +33,30 @@ import papadFryImg from "@assets/image_1776843288193.png";
 import masalaPapadImg from "@assets/image_1776843309315.png";
 import saltedPeanutImg from "@assets/image_1776843326947.png";
 
+import cheeseCherryPineappleImg from "@assets/image_1776843660207.png";
+import cheeseChillyToastImg from "@assets/image_1776844265977.png";
+import cheeseCornBallsImg from "@assets/image_1776844292137.png";
+import cheeseFriesImg from "@assets/image_1776844439010.png";
+import classicFriesImg from "@assets/image_1776844464072.png";
+import cornChatImg from "@assets/image_1776844605215.png";
+import freshCornTacosImg from "@assets/image_1776844660397.png";
+import garlicBreadCheeseImg from "@assets/image_1776844685250.png";
+import mexicanNachosImg from "@assets/image_1776844703446.png";
+import vegBruschettaImg from "@assets/image_1776844725711.png";
+import vegCigarRollImg from "@assets/image_1776844758488.png";
+
 const NAME_IMAGE_OVERRIDES: { match: (n: string) => boolean; image: string }[] = [
+  { match: (n) => n.includes("cheese") && n.includes("cherry") && n.includes("pineapple"), image: cheeseCherryPineappleImg },
+  { match: (n) => n.includes("cheese") && n.includes("chilly") && n.includes("toast"), image: cheeseChillyToastImg },
+  { match: (n) => n.includes("cheese") && n.includes("corn") && n.includes("ball"), image: cheeseCornBallsImg },
+  { match: (n) => n.includes("cheese") && n.includes("fries"), image: cheeseFriesImg },
+  { match: (n) => n.includes("classic") && n.includes("fries"), image: classicFriesImg },
+  { match: (n) => n.includes("corn") && n.includes("chat"), image: cornChatImg },
+  { match: (n) => n.includes("corn") && n.includes("taco"), image: freshCornTacosImg },
+  { match: (n) => n.includes("garlic") && n.includes("bread"), image: garlicBreadCheeseImg },
+  { match: (n) => n.includes("nacho"), image: mexicanNachosImg },
+  { match: (n) => n.includes("bruschetta"), image: vegBruschettaImg },
+  { match: (n) => n.includes("cigar") && n.includes("roll"), image: vegCigarRollImg },
   { match: (n) => n.includes("bhajiya") || n.includes("pakoda") || n.includes("pakora"), image: bhajiyaImg },
   { match: (n) => n.includes("butter corn") || n.includes("boiled chana"), image: butterCornImg },
   { match: (n) => n.includes("masala") && n.includes("kheecha"), image: kheechaPapadImg },
