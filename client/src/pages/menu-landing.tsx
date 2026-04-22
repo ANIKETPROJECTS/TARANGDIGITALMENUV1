@@ -1491,7 +1491,7 @@ export default function MenuLanding() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute inset-0 flex flex-col items-center justify-end p-2 pb-3">
                       <h3
-                        className="text-sm sm:text-base md:text-lg font-semibold tracking-widest uppercase text-center"
+                        className="text-lg sm:text-xl md:text-2xl font-bold tracking-widest uppercase text-center"
                         style={{
                           fontFamily: "'DM Sans', sans-serif",
                           color: "#FFFFFF",
