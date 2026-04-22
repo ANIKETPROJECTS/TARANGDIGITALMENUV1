@@ -397,27 +397,35 @@ export default function SubcategoryProducts() {
         </div>
 
         {categoryAddon && (
-          <div
-            className="mb-3 sm:mb-5 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2"
-            style={{
-              background: isDark ? "rgba(228,155,29,0.08)" : "rgba(228,155,29,0.10)",
-              border: "1px solid rgba(228,155,29,0.35)",
-              borderLeft: "3px solid #E49B1D",
-            }}
-            data-testid="banner-category-addon"
-          >
-            <span
-              className="text-[10px] sm:text-xs font-bold uppercase tracking-widest flex-shrink-0"
-              style={{ color: "var(--bb-gold)", fontFamily: "'DM Sans', sans-serif" }}
+          <div className="mb-4 sm:mb-6 flex justify-center" data-testid="banner-category-addon">
+            <div
+              className="inline-flex flex-col items-center text-center px-5 py-2 rounded-full"
+              style={{
+                background: isDark ? "rgba(228,155,29,0.08)" : "rgba(228,155,29,0.08)",
+                border: "1px solid rgba(228,155,29,0.35)",
+              }}
             >
-              Add-on
-            </span>
-            <span
-              className="text-xs sm:text-sm font-semibold"
-              style={{ color: "var(--bb-gold-2, #E49B1D)", fontFamily: "'DM Sans', sans-serif" }}
-            >
-              {categoryAddon}
-            </span>
+              <span
+                className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em]"
+                style={{
+                  color: "rgba(228,155,29,0.75)",
+                  fontFamily: "'DM Sans', sans-serif",
+                  lineHeight: 1.4,
+                }}
+              >
+                Add-on Available
+              </span>
+              <span
+                className="text-xs sm:text-sm font-semibold tracking-wide"
+                style={{
+                  color: "var(--bb-gold)",
+                  fontFamily: "'DM Sans', sans-serif",
+                  lineHeight: 1.3,
+                }}
+              >
+                {categoryAddon}
+              </span>
+            </div>
           </div>
         )}
 
