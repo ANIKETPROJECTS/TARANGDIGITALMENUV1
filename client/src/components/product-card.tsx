@@ -97,38 +97,48 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
         />
       </div>
 
-      {/* Text content — 30% of card height */}
-      <div className="flex flex-col justify-between px-2 py-1.5 md:px-3 md:py-2 gap-1" style={{ flex: "0 0 30%", minHeight: 0 }}>
+      {/* Text content — fixed-height rows so all cards align */}
+      <div className="flex flex-col p-2 md:p-3">
 
-        {/* Name — single line, truncated */}
-        <h3
-          className="text-xs sm:text-sm font-semibold tracking-wide uppercase truncate"
+        {/* Name — always exactly 2 lines tall */}
+        <div
           style={{
-            color: "var(--bb-gold)",
-            fontFamily: "'DM Sans', sans-serif",
-            lineHeight: "1.2",
+            height: "2.6em",
+            lineHeight: "1.3em",
+            overflow: "hidden",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
           }}
         >
-          {item.name}
-        </h3>
+          <h3
+            className="text-sm sm:text-base font-semibold tracking-wide uppercase"
+            style={{
+              color: "var(--bb-gold)",
+              fontFamily: "'DM Sans', sans-serif",
+              lineHeight: "1.3em",
+            }}
+          >
+            {item.name}
+          </h3>
+        </div>
 
         {/* Description — single line, truncated with ellipsis */}
         <p
-          className="text-[10px] sm:text-xs truncate"
+          className="text-xs sm:text-sm mt-1 mb-2 truncate"
           style={{
             color: "var(--bb-text)",
             fontFamily: "'DM Sans', sans-serif",
             opacity: 0.8,
-            lineHeight: "1.25",
           }}
         >
           {item.description || "No description available"}
         </p>
 
         {/* Price */}
-        <div className="pt-1" style={{ borderTop: "1px solid var(--bb-border)" }}>
+        <div className="pt-2" style={{ borderTop: "1px solid var(--bb-border)" }}>
           <span
-            className="text-xs sm:text-sm font-bold block tracking-wide"
+            className="text-sm sm:text-base font-bold block tracking-wide"
             style={{
               color: "var(--bb-gold-2)",
               fontFamily: "'DM Sans', sans-serif",
