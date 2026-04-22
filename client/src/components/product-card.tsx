@@ -77,12 +77,13 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
         borderRadius: "10px",
         backgroundColor: "var(--bb-card)",
         border: "1px solid var(--bb-border)",
+        aspectRatio: "1 / 1.55",
       }}
       onClick={() => onClick?.(item)}
       data-testid={`card-dish-${item._id?.toString()}`}
     >
-      {/* Image */}
-      <div className="relative w-full flex-shrink-0 overflow-hidden" style={{ borderRadius: "10px 10px 0 0", height: "190px" }}>
+      {/* Image — 70% of card height */}
+      <div className="relative w-full overflow-hidden" style={{ borderRadius: "10px 10px 0 0", flex: "0 0 70%" }}>
         <img
           src={imageUrl}
           alt={item.name}
@@ -96,8 +97,8 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
         />
       </div>
 
-      {/* Text content — fixed-height rows so all cards align */}
-      <div className="flex flex-col p-2 md:p-3">
+      {/* Text content — 30% of card height */}
+      <div className="flex flex-col justify-between p-2 md:p-3" style={{ flex: "0 0 30%", minHeight: 0 }}>
 
         {/* Name — always exactly 2 lines tall */}
         <div
