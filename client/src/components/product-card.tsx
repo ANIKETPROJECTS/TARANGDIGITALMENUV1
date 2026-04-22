@@ -125,7 +125,7 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
 
         {/* Description — single line, truncated with ellipsis */}
         <p
-          className="text-xs sm:text-sm mt-1 mb-2 truncate"
+          className="text-xs sm:text-sm mt-0 mb-2 truncate"
           style={{
             color: "var(--bb-text)",
             fontFamily: "'DM Sans', sans-serif",
