@@ -221,6 +221,21 @@ subcategoryImages["gosht-e-khaas"] = goshtEKhaasImg;
 subcategoryImages["jalpari-special"] = jalpariSpecialImg;
 subcategoryImages["sabzi-tarkari"] = sabziTarkariImg;
 
+subcategoryImages["cocktails"] = classicCocktailsImg;
+subcategoryImages["shots"] = tequilaImg;
+subcategoryImages["beer"] = pintBeerImg;
+subcategoryImages["alcopops"] = liqueursImg;
+subcategoryImages["wine"] = wineImg;
+subcategoryImages["liquor"] = blendedScotchWhiskyImg;
+subcategoryImages["beverages"] = softBeveragesImg;
+subcategoryImages["whisky"] = blendedWhiskyImg;
+subcategoryImages["single-malt"] = singleMaltWhiskyImg;
+subcategoryImages["bourbon-irish"] = americanIrishWhiskeyImg;
+subcategoryImages["vodka"] = vodkaImg;
+subcategoryImages["gin"] = ginImg;
+subcategoryImages["rum"] = rumImg;
+subcategoryImages["brandy"] = cognacBrandyImg;
+
 export default function CategorySelection() {
   const [, setLocation] = useLocation();
   const params = useParams<{ category: string }>();
