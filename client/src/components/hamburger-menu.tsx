@@ -332,7 +332,7 @@ export default function HamburgerMenu({
     queryKey: ["/api/social-links"],
   });
 
-  const upiId = paymentDetails?.upiId ?? "sairajkoyande@oksbi";
+  const upiId = "sairajkoyande@oksbi";
 
   const resolveLink = (linkKey?: string): string | undefined => {
     if (!linkKey || !socialLinks) return undefined;
