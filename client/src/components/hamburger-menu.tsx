@@ -9,6 +9,9 @@ import type { MenuCategory, PaymentDetails, RestaurantInfo, SocialLinks } from "
 import Lottie from "lottie-react";
 // @ts-ignore
 import confirmationAnimation from "@assets/Confirmation_1773569485933.json";
+import gpayLogo from "@assets/—Pngtree—google_pay_payment_icon_vector_12256719_(1)_1776885948872.png";
+import phonepeLogo from "@assets/phonepe_(1)_1776885988742.png";
+import paytmLogo from "@assets/paytm_(1)_1776886022894.png";
 import mapsImg from "@assets/logo_(1)_1773390711534.png";
 import callImg from "@assets/call_1773390891033.png";
 import clockImg from "@assets/clock_1773568902929.png";
@@ -472,54 +475,32 @@ export default function HamburgerMenu({
                     </button>
                   </div>
 
-                  <button
-                    onClick={() => setShowQr(!showQr)}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold tracking-widest uppercase transition-all active:scale-95"
-                    style={{ border: isDark ? "1px solid rgba(228,155,29,0.3)" : "1px solid rgba(0,0,0,0.1)", color: "#E49B1D", background: isDark ? "rgba(228,155,29,0.05)" : "#FFFFFF" }}
-                    data-testid="button-show-qr"
-                  >
-                    <QrCode className="w-3.5 h-3.5" />
-                    {showQr ? "Hide QR Code" : "Show QR Code"}
-                  </button>
-
-                  <AnimatePresence>
-                    {showQr && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="flex flex-col items-center gap-2 pt-1">
-                          <div className="w-44 h-44 rounded-xl flex items-center justify-center" style={{ background: "white", border: "3px solid #E49B1D" }}>
-                            <img
-                              src={`https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=upi://pay?pa=${upiId}&pn=BarrelBorn&cu=INR`}
-                              alt="UPI QR Code"
-                              className="w-40 h-40 object-contain rounded"
-                            />
-                          </div>
-                          <p className="text-[10px] text-center tracking-wide" style={{ color: "rgba(220,212,200,0.5)", fontFamily: "'DM Sans', sans-serif" }}>
-                            Scan with any UPI app
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className="flex flex-col items-center gap-2 pt-1">
+                    <div className="w-44 h-44 rounded-xl flex items-center justify-center" style={{ background: "white", border: "3px solid #E49B1D" }}>
+                      <img
+                        src={`https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=upi://pay?pa=${upiId}&pn=Sairaj%20Koyande&cu=INR`}
+                        alt="UPI QR Code"
+                        className="w-40 h-40 object-contain rounded"
+                      />
+                    </div>
+                    <p className="text-[10px] text-center tracking-wide" style={{ color: isDark ? "rgba(220,212,200,0.5)" : "rgba(0,0,0,0.45)", fontFamily: "'DM Sans', sans-serif" }}>
+                      Scan with any UPI app
+                    </p>
+                  </div>
 
                   {(() => {
                     const payeeName = "Sairaj Koyande";
                     const upiQuery = `pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&cu=INR`;
-                    const apps: { label: string; scheme: string; color: string }[] = [
-                      { label: "GPay", scheme: `tez://upi/pay?${upiQuery}`, color: "#1A73E8" },
-                      { label: "PhonePe", scheme: `phonepe://pay?${upiQuery}`, color: "#5F259F" },
-                      { label: "Paytm", scheme: `paytmmp://pay?${upiQuery}`, color: "#00BAF2" },
+                    const apps: { label: string; scheme: string; logo: string }[] = [
+                      { label: "GPay", scheme: `tez://upi/pay?${upiQuery}`, logo: gpayLogo },
+                      { label: "PhonePe", scheme: `phonepe://pay?${upiQuery}`, logo: phonepeLogo },
+                      { label: "Paytm", scheme: `paytmmp://pay?${upiQuery}`, logo: paytmLogo },
                     ];
                     const openApp = (url: string) => {
                       window.location.href = url;
                     };
                     return (
-                      <div className="space-y-2 pt-1">
+                      <div className="space-y-2 pt-2">
                         <p className="text-[10px] tracking-widest uppercase text-center" style={{ color: "rgba(228,155,29,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
                           Pay With
                         </p>
@@ -529,31 +510,22 @@ export default function HamburgerMenu({
                               key={app.label}
                               onClick={() => openApp(app.scheme)}
                               disabled={!upiId}
-                              className="py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all active:scale-95 disabled:opacity-50"
+                              className="h-14 rounded-xl flex items-center justify-center transition-all active:scale-95 disabled:opacity-50 overflow-hidden"
                               style={{
-                                background: app.color,
-                                color: "#FFFFFF",
-                                fontFamily: "'DM Sans', sans-serif",
+                                background: "#FFFFFF",
+                                border: "1px solid rgba(0,0,0,0.08)",
                               }}
                               data-testid={`button-pay-${app.label.toLowerCase()}`}
+                              aria-label={`Pay with ${app.label}`}
                             >
-                              {app.label}
+                              <img
+                                src={app.logo}
+                                alt={app.label}
+                                className="max-h-10 max-w-[80%] object-contain"
+                              />
                             </button>
                           ))}
                         </div>
-                        <button
-                          onClick={() => openApp(`upi://pay?${upiQuery}`)}
-                          disabled={!upiId}
-                          className="w-full py-2.5 rounded-xl text-xs font-bold tracking-widest uppercase transition-all active:scale-95 disabled:opacity-50"
-                          style={{
-                            background: "linear-gradient(90deg, #E49B1D, #E6C55A)",
-                            color: "#1C1500",
-                            fontFamily: "'DM Sans', sans-serif",
-                          }}
-                          data-testid="button-pay-other"
-                        >
-                          Other UPI App
-                        </button>
                       </div>
                     );
                   })()}
