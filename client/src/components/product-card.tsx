@@ -45,7 +45,16 @@ import mexicanNachosImg from "@assets/image_1776844703446.png";
 import vegBruschettaImg from "@assets/image_1776844725711.png";
 import vegCigarRollImg from "@assets/image_1776844758488.png";
 
+import chickenNachosImg from "@assets/image_1776844928013.png";
+import chickenPopcornImg from "@assets/image_1776844943200.png";
+import fishChipsImg from "@assets/image_1776844967962.png";
+import chickenTacosImg from "@assets/image_1776844982108.png";
+
 const NAME_IMAGE_OVERRIDES: { match: (n: string) => boolean; image: string }[] = [
+  { match: (n) => n.includes("chicken") && n.includes("nacho"), image: chickenNachosImg },
+  { match: (n) => n.includes("chicken") && n.includes("popcorn"), image: chickenPopcornImg },
+  { match: (n) => n.includes("fish") && (n.includes("chips") || n.includes("finger")), image: fishChipsImg },
+  { match: (n) => n.trim() === "tacos", image: chickenTacosImg },
   { match: (n) => n.includes("cheese") && n.includes("cherry") && n.includes("pineapple"), image: cheeseCherryPineappleImg },
   { match: (n) => n.includes("cheese") && n.includes("chilly") && n.includes("toast"), image: cheeseChillyToastImg },
   { match: (n) => n.includes("cheese") && n.includes("corn") && n.includes("ball"), image: cheeseCornBallsImg },
