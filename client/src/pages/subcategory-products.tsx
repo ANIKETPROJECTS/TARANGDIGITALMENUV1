@@ -217,7 +217,7 @@ export default function SubcategoryProducts() {
       if (!current || v.count > current.count) best = v;
     });
     const winner = best as { display: string; count: number } | null;
-    return winner && winner.count >= 2 ? winner.display : null;
+    return winner && winner.count >= 1 ? winner.display : null;
   }, [menuItems]);
 
   const filteredItems = useMemo(() => {
