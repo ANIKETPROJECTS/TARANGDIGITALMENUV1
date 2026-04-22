@@ -22,7 +22,14 @@ import mocktailVirginMojitoImg from "@assets/image_1776833965352.png";
 import mocktailVirginPinacoladaImg from "@assets/image_1776833999860.png";
 import mocktailWinterPunchImg from "@assets/image_1776834027249.png";
 
+import dessertIceCreamImg from "@assets/image_1776837853758.png";
+import dessertGulabJamunImg from "@assets/image_1776837905531.png";
+import dessertSizzlingBrownieImg from "@assets/image_1776837922629.png";
+
 const NAME_IMAGE_OVERRIDES: { match: (n: string) => boolean; image: string }[] = [
+  { match: (n) => n.includes("ice cream") && n.includes("choice"), image: dessertIceCreamImg },
+  { match: (n) => n.includes("gulab") && n.includes("jamun"), image: dessertGulabJamunImg },
+  { match: (n) => n.includes("sizzling") && n.includes("brownie"), image: dessertSizzlingBrownieImg },
   { match: (n) => n.includes("blood") && n.includes("orange"), image: mocktailBloodOrangeImg },
   { match: (n) => n.includes("cherry") && n.includes("bomb"), image: mocktailCherryBombImg },
   { match: (n) => n.includes("coco") && n.includes("delight"), image: mocktailCocoDelightImg },
