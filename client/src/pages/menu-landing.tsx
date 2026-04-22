@@ -38,10 +38,10 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
-import premiumFoodImg from "@assets/image_1765866040643.png";
-import premiumBarImg from "@assets/stock_images/premium_whisky_cockt_68b3295e.jpg";
+import premiumFoodImg from "@assets/image_1776832578996.png";
+import premiumBarImg from "@assets/image_1776832765185.png";
 import premiumDessertsImg from "@assets/image_1776752566455.png";
-import premiumMocktailsImg from "@assets/stock_images/premium_colorful_moc_1a15dee9.jpg";
+import premiumMocktailsImg from "@assets/image_1776833112037.png";
 import cocktailsImg from "@assets/COCKTAILS_1766751289781.jpg";
 import craftedBeerImg from "@assets/CRAFTED_BEER_1766750491358.jpg";
 import fallbackImg from "@assets/coming_soon_imagev2_1766811809828.jpg";
