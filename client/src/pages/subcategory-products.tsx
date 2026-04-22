@@ -398,34 +398,18 @@ export default function SubcategoryProducts() {
 
         {categoryAddon && (
           <div className="mb-4 sm:mb-6 flex justify-center" data-testid="banner-category-addon">
-            <div
-              className="inline-flex flex-col items-center text-center px-5 py-2 rounded-full"
+            <span
+              className="inline-block px-4 py-1 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide whitespace-nowrap text-center"
               style={{
-                background: isDark ? "rgba(228,155,29,0.08)" : "rgba(228,155,29,0.08)",
+                color: "var(--bb-gold)",
+                background: "rgba(228,155,29,0.08)",
                 border: "1px solid rgba(228,155,29,0.35)",
+                fontFamily: "'DM Sans', sans-serif",
+                lineHeight: 1.4,
               }}
             >
-              <span
-                className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em]"
-                style={{
-                  color: "rgba(228,155,29,0.75)",
-                  fontFamily: "'DM Sans', sans-serif",
-                  lineHeight: 1.4,
-                }}
-              >
-                Add-on Available
-              </span>
-              <span
-                className="text-xs sm:text-sm font-semibold tracking-wide"
-                style={{
-                  color: "var(--bb-gold)",
-                  fontFamily: "'DM Sans', sans-serif",
-                  lineHeight: 1.3,
-                }}
-              >
-                {categoryAddon}
-              </span>
-            </div>
+              {categoryAddon}
+            </span>
           </div>
         )}
 
