@@ -508,7 +508,7 @@ export default function HamburgerMenu({
                   </AnimatePresence>
 
                   {(() => {
-                    const payeeName = restaurantInfo?.location?.name || "Barrelborn";
+                    const payeeName = "Sairaj Koyande";
                     const upiQuery = `pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&cu=INR`;
                     const apps: { label: string; scheme: string; color: string }[] = [
                       { label: "GPay", scheme: `tez://upi/pay?${upiQuery}`, color: "#1A73E8" },
