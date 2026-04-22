@@ -40,6 +40,35 @@ function searchSubs(subs: MenuSubCategory[], id: string): MenuSubCategory | null
   return null;
 }
 
+const ADDON_REGEX = /ADD\s+[A-Z][^\n]*?\d+[^\n]*/i;
+
+function extractAddon(text: string | number | undefined | null): string | null {
+  if (text === undefined || text === null) return null;
+  const s = String(text).trim();
+  if (!s) return null;
+  const match = s.match(ADDON_REGEX);
+  if (!match) return null;
+  return match[0].replace(/\s+/g, " ").trim();
+}
+
+function normalizeAddon(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function stripAddonFromText(text: string | undefined | null, addon: string): string {
+  if (!text) return "";
+  const target = normalizeAddon(addon);
+  let cleaned = String(text)
+    .split(/[\n;]+|(?:\s[&/-]\s)/)
+    .filter((part) => normalizeAddon(part) !== target)
+    .join(" ")
+    .trim();
+  if (normalizeAddon(cleaned) === target) cleaned = "";
+  cleaned = cleaned.replace(new RegExp(addon.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "").trim();
+  cleaned = cleaned.replace(/^[\s,&/.-]+|[\s,&/.-]+$/g, "");
+  return cleaned;
+}
+
 interface ISpeechRecognitionEvent {
   results: SpeechRecognitionResultList;
 }
@@ -167,6 +196,30 @@ export default function SubcategoryProducts() {
     });
   }, [menuItems, currentSubcategory, categoryId, subcategoryId]);
 
+  const categoryAddon = useMemo(() => {
+    const counts = new Map<string, { display: string; count: number }>();
+    for (const item of menuItems) {
+      const candidates = [extractAddon(item.description), extractAddon(item.price as any)];
+      const seenForItem = new Set<string>();
+      for (const c of candidates) {
+        if (!c) continue;
+        const key = normalizeAddon(c);
+        if (seenForItem.has(key)) continue;
+        seenForItem.add(key);
+        const existing = counts.get(key);
+        if (existing) existing.count += 1;
+        else counts.set(key, { display: c, count: 1 });
+      }
+    }
+    let best: { display: string; count: number } | null = null;
+    counts.forEach((v) => {
+      const current = best;
+      if (!current || v.count > current.count) best = v;
+    });
+    const winner = best as { display: string; count: number } | null;
+    return winner && winner.count >= 2 ? winner.display : null;
+  }, [menuItems]);
+
   const filteredItems = useMemo(() => {
     let filtered = menuItems;
     
@@ -186,9 +239,22 @@ export default function SubcategoryProducts() {
         item.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-    
+
+    if (categoryAddon) {
+      const addonKey = normalizeAddon(categoryAddon);
+      filtered = filtered.map((item) => {
+        const newDescription = stripAddonFromText(item.description, categoryAddon);
+        let newPrice = item.price;
+        if (typeof item.price === "string" && normalizeAddon(item.price) === addonKey) {
+          newPrice = "";
+        }
+        if (newDescription === item.description && newPrice === item.price) return item;
+        return { ...item, description: newDescription, price: newPrice } as MenuItem;
+      });
+    }
+
     return filtered;
-  }, [menuItems, searchQuery, vegFilter]);
+  }, [menuItems, searchQuery, vegFilter, categoryAddon]);
 
   const startVoiceSearch = () => {
     if (speechRecognition && voiceSearchSupported) {
@@ -329,6 +395,31 @@ export default function SubcategoryProducts() {
             )}
           </div>
         </div>
+
+        {categoryAddon && (
+          <div
+            className="mb-3 sm:mb-5 rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2"
+            style={{
+              background: isDark ? "rgba(228,155,29,0.08)" : "rgba(228,155,29,0.10)",
+              border: "1px solid rgba(228,155,29,0.35)",
+              borderLeft: "3px solid #E49B1D",
+            }}
+            data-testid="banner-category-addon"
+          >
+            <span
+              className="text-[10px] sm:text-xs font-bold uppercase tracking-widest flex-shrink-0"
+              style={{ color: "var(--bb-gold)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Add-on
+            </span>
+            <span
+              className="text-xs sm:text-sm font-semibold"
+              style={{ color: "var(--bb-gold-2, #E49B1D)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              {categoryAddon}
+            </span>
+          </div>
+        )}
 
         {isLoading ? (
           <div className="flex flex-col items-center justify-center min-h-[300px]">
