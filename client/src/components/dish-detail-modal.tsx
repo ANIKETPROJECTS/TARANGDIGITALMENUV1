@@ -4,6 +4,7 @@ import type { MenuItem } from "@shared/schema";
 import fallbackImg from "@assets/coming_soon_imagev2_1766811809828.jpg";
 import { useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
+import { getOverrideImage } from "@/components/product-card";
 
 interface DishDetailModalProps {
   item: MenuItem | null;
@@ -26,8 +27,9 @@ export default function DishDetailModal({ item, onClose }: DishDetailModalProps)
   const cardBg = isDark ? "rgba(228,155,29,0.06)" : "#FFFFFF";
   const cardBorder = isDark ? "1px solid rgba(228,155,29,0.15)" : "1px solid rgba(0,0,0,0.08)";
 
+  const override = getOverrideImage(item.name);
   const isBroken = imgError || !item.image || item.image.includes("placeholder.com") || item.image.includes("example.com");
-  const imageUrl = isBroken ? fallbackImg : item.image;
+  const imageUrl = isBroken ? (override ?? fallbackImg) : item.image;
 
   const priceDisplay =
     typeof item.price === "string" && item.price.includes("|")
@@ -66,14 +68,6 @@ export default function DishDetailModal({ item, onClose }: DishDetailModalProps)
               onError={() => setImgError(true)}
             />
 
-            {/* Subtle bottom fade so name area reads cleanly */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 40%, rgba(26,20,8,0.6) 100%)",
-              }}
-            />
-
             {/* Veg / Non-Veg badge — top left */}
             <div
               className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase"
@@ -109,10 +103,10 @@ export default function DishDetailModal({ item, onClose }: DishDetailModalProps)
             style={{ background: "linear-gradient(90deg, transparent, #E49B1D, #E6C55A, transparent)" }}
           />
 
-          {/* Name + Price row */}
-          <div className="px-5 pt-5 pb-3 flex items-start justify-between gap-3">
+          {/* Name + Price stacked */}
+          <div className="px-5 pt-5 pb-3 flex flex-col gap-2">
             <h2
-              className="font-bold leading-tight uppercase flex-1"
+              className="font-bold leading-tight uppercase"
               style={{
                 color: textPrimary,
                 fontFamily: "'DM Sans', sans-serif",
@@ -124,18 +118,20 @@ export default function DishDetailModal({ item, onClose }: DishDetailModalProps)
             >
               {item.name}
             </h2>
-            <p
-              className="text-lg font-black tracking-wider flex-shrink-0"
-              style={{
-                background: "linear-gradient(90deg, #E49B1D, #E6C55A)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                fontFamily: "'DM Sans', sans-serif",
-              }}
-              data-testid="text-dish-price"
-            >
-              {priceDisplay}
-            </p>
+            {priceDisplay && priceDisplay !== "₹" && (
+              <p
+                className="text-lg font-black tracking-wider"
+                style={{
+                  background: "linear-gradient(90deg, #E49B1D, #E6C55A)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+                data-testid="text-dish-price"
+              >
+                {priceDisplay}
+              </p>
+            )}
           </div>
 
           {/* Content */}

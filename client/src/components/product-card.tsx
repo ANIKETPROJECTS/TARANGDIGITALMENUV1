@@ -112,7 +112,7 @@ const NAME_IMAGE_OVERRIDES: { match: (n: string) => boolean; image: string }[] =
   { match: (n) => n.includes("clear") && n.includes("soup"), image: soupClearImg },
 ];
 
-function getOverrideImage(name: string): string | null {
+export function getOverrideImage(name: string): string | null {
   const n = (name || "").toLowerCase();
   for (const o of NAME_IMAGE_OVERRIDES) {
     if (o.match(n)) return o.image;
