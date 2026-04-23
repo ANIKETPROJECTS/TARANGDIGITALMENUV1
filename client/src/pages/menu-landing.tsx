@@ -1110,9 +1110,15 @@ export default function MenuLanding() {
     queryKey: ["/api/coupons"],
   });
 
-  const carouselImages: CarouselImage[] = [
-    { _id: "drinks-offer-banner", url: drinksOfferBannerImg, order: 1, visible: true } as CarouselImage,
-  ];
+  const { data: carouselData = [] } = useQuery<CarouselImage[]>({
+    queryKey: ["/api/carousel"],
+  });
+  const carouselImages: CarouselImage[] = (carouselData.length > 0
+    ? carouselData
+    : [{ _id: "drinks-offer-banner", url: drinksOfferBannerImg, order: 1, visible: true } as CarouselImage]
+  )
+    .filter((img) => img.visible !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
   const { data: menuCategories = [] } = useQuery<MenuCategory[]>({
     queryKey: ["/api/menu-categories"],
