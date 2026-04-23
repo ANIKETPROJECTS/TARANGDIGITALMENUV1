@@ -10,8 +10,7 @@ module.exports = {
       NODE_ENV: "production",
       PORT: 3010,
       MONGODB_URI: "mongodb+srv://raneaniket23_db_user:OiUJaUQdc1FsXmzn@atdigitalmenu.prd9tyh.mongodb.net/?appName=ATDIGITALMENU",
-      SESSION_SECRET: "ZTYj/a2OXy7iabAxcXL+ue17Aw3pQPg7wmyjLWvduDU4t/jS37xQriltz3khKboxGBhjje3+rqc7l7YuNmdOCA==",
-      ADMIN_API_TOKEN: ""
+      SESSION_SECRET: "ZTYj/a2OXy7iabAxcXL+ue17Aw3pQPg7wmyjLWvduDU4t/jS37xQriltz3khKboxGBhjje3+rqc7l7YuNmdOCA=="
     }
   }]
 };
