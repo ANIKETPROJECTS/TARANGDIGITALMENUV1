@@ -255,7 +255,7 @@ export default function Welcome() {
           style={{ marginTop: "20px" }}
         >
           <p className="social-card-label text-xs font-medium tracking-widest">
-            Follow Our Socials
+            {t.followOurSocials}
           </p>
           <div className="flex items-center gap-6">
             <button
@@ -286,7 +286,7 @@ export default function Welcome() {
 
           {/* Click to Rate Us */}
           <p className="social-card-label text-xs font-medium tracking-widest">
-            Click To Rate Us
+            {t.clickToRateUs}
           </p>
           <div style={{ overflow: "hidden", height: "62px" }}>
             <button
@@ -307,7 +307,7 @@ export default function Welcome() {
 
           {/* Connect With Us */}
           <p className="social-card-label text-xs font-medium tracking-widest">
-            Connect With Us
+            {t.connectWithUs}
           </p>
           <div className="grid grid-cols-5 items-start justify-items-center gap-1 w-full">
             <button
@@ -316,7 +316,7 @@ export default function Welcome() {
               data-testid="button-connect-locate"
             >
               <img src={mapsImg} alt="Google Maps" className="w-10 h-10 rounded-lg object-cover" />
-              <span className="social-card-label text-xs font-semibold">LOCATE</span>
+              <span className="social-card-label text-xs font-semibold">{t.locate}</span>
             </button>
             <button
               className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -324,7 +324,7 @@ export default function Welcome() {
               data-testid="button-connect-call"
             >
               <img src={callImg} alt="Call" className="w-10 h-10 rounded-full object-cover" />
-              <span className="social-card-label text-xs font-semibold">CALL</span>
+              <span className="social-card-label text-xs font-semibold">{t.call}</span>
             </button>
             <button
               className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -332,7 +332,7 @@ export default function Welcome() {
               data-testid="button-connect-chat"
             >
               <img src={whatsappImg} alt="WhatsApp" className="w-10 h-10 rounded-xl object-cover" />
-              <span className="social-card-label text-xs font-semibold">CHAT</span>
+              <span className="social-card-label text-xs font-semibold">{t.chat}</span>
             </button>
             <button
               className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -340,7 +340,7 @@ export default function Welcome() {
               data-testid="button-connect-email"
             >
               <img src={mailImg} alt="Email" className="w-10 h-10 rounded-lg object-cover" />
-              <span className="social-card-label text-xs font-semibold">EMAIL</span>
+              <span className="social-card-label text-xs font-semibold">{t.email}</span>
             </button>
             <button
               className="flex min-w-0 flex-col items-center gap-0.5 transition-opacity hover:opacity-80"
@@ -348,7 +348,7 @@ export default function Welcome() {
               data-testid="button-connect-reservation"
             >
               <img src={reservationImg} alt="Reservation" className="w-10 h-10 rounded-xl object-contain" />
-              <span className="social-card-label text-xs font-semibold">BOOK</span>
+              <span className="social-card-label text-xs font-semibold">{t.book}</span>
             </button>
           </div>
 
