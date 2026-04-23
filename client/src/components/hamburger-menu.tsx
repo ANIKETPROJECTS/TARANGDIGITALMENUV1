@@ -335,7 +335,7 @@ export default function HamburgerMenu({
     queryKey: ["/api/social-links"],
   });
 
-  const upiId = "sairajkoyande@oksbi";
+  const upiId = paymentDetails?.upiId || "";
 
   const resolveLink = (linkKey?: string): string | undefined => {
     if (!linkKey || !socialLinks) return undefined;
@@ -478,7 +478,7 @@ export default function HamburgerMenu({
                   <div className="flex flex-col items-center gap-2 pt-1">
                     <div className="w-44 h-44 rounded-xl flex items-center justify-center" style={{ background: "white", border: "3px solid #E49B1D" }}>
                       <img
-                        src={`https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=upi://pay?pa=${upiId}&pn=Sairaj%20Koyande&cu=INR`}
+                        src={`https://api.qrserver.com/v1/create-qr-code/?size=176x176&data=${encodeURIComponent(`upi://pay?pa=${upiId}&pn=${restaurantInfo?.name || "Tarang Kitchen & Bar"}&cu=INR`)}`}
                         alt="UPI QR Code"
                         className="w-40 h-40 object-contain rounded"
                       />
@@ -489,7 +489,7 @@ export default function HamburgerMenu({
                   </div>
 
                   {(() => {
-                    const payeeName = "Sairaj Koyande";
+                    const payeeName = restaurantInfo?.name || "Tarang Kitchen & Bar";
                     const upiQuery = `pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&cu=INR`;
                     const apps: { label: string; scheme: string; logo: string; scale: number }[] = [
                       { label: "GPay", scheme: `tez://upi/pay?${upiQuery}`, logo: gpayLogo, scale: 1.25 },
