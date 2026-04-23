@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: "atdigitalmenu",
+    name: "Tarangdigitalmenu",
     script: "./dist/index.js",
     instances: 1,
     autorestart: true,
@@ -8,10 +8,10 @@ module.exports = {
     max_memory_restart: "1G",
     env: {
       NODE_ENV: "production",
-      PORT: process.env.PORT || 3002,
-      MONGODB_URI: process.env.MONGODB_URI,
-      SESSION_SECRET: process.env.SESSION_SECRET,
-      ADMIN_API_TOKEN: process.env.ADMIN_API_TOKEN
+      PORT: 3010,
+      MONGODB_URI: "mongodb+srv://raneaniket23_db_user:OiUJaUQdc1FsXmzn@atdigitalmenu.prd9tyh.mongodb.net/?appName=ATDIGITALMENU",
+      SESSION_SECRET: "ZTYj/a2OXy7iabAxcXL+ue17Aw3pQPg7wmyjLWvduDU4t/jS37xQriltz3khKboxGBhjje3+rqc7l7YuNmdOCA==",
+      ADMIN_API_TOKEN: ""
     }
   }]
 };
