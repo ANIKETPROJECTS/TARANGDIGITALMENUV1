@@ -162,7 +162,7 @@ export default function Welcome() {
   const { playWelcomeAudio } = useWelcomeAudio();
   const [mediaReady, setMediaReady] = useState(false);
   const [showReservation, setShowReservation] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { isDark } = useTheme();
 
   const { data: linksData } = useQuery<SocialLinks>({
@@ -238,7 +238,7 @@ export default function Welcome() {
           style={{ marginTop: "-10px" }}
           data-testid="button-explore-menu"
         >
-          <span>{welcomeUI.buttonText || t.exploreMenu}</span>
+          <span>{language === "en" ? (welcomeUI.buttonText || t.exploreMenu) : t.exploreMenu}</span>
           <span
             className="btn-icon w-8 h-8 flex-shrink-0 inline-block"
             style={{
